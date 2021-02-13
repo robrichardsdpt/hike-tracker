@@ -11,13 +11,17 @@
   margin: 10px;
   padding: 10px;
   background: rgba(0,0,0,0.6);
+  min-width: 320px;
 }
 .hike-information-row{
   display: flex;
   justify-content: space-between;
 }
 .hike-information-label {
-  color: black;
+  color: whitesmoke;
+}
+hike-information-data {
+  align-self: flex-end;
 }
 .date-title {
   border-bottom: 5px solid gray;
