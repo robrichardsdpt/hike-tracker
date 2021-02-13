@@ -24,15 +24,7 @@ const App = () => {
   return (
     <Fragment>
       <NavBar user={user} />
-      {msgAlerts.map((msgAlert, index) => (
-        <AutoDismissAlert
-          key={index}
-          heading={msgAlert.heading}
-          variant={msgAlert.variant}
-          message={msgAlert.message}
-        />
-      ))}
-      <main className="container">
+      <main className="main-container">
         <Route path='/sign-up' render={() => (
           <SignUp msgAlert={msgAlert} setUser={setUser} />
         )} />
@@ -47,7 +39,15 @@ const App = () => {
         )} />
         <AuthenticatedRoute user={user} path='/change-password' render={() => (
           <ChangePassword msgAlert={msgAlert} user={user} />
-        )} />
+          )} />
+        {msgAlerts.map((msgAlert, index) => (
+          <AutoDismissAlert
+            key={index}
+            heading={msgAlert.heading}
+            variant={msgAlert.variant}
+            message={msgAlert.message}
+          />
+        ))}
       </main>
     </Fragment>
   )

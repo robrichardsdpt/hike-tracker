@@ -9,7 +9,7 @@ const AutoDismissAlert = ({ variant, heading, message }) => {
   useEffect(() => {
     setInterval(() => {
       return setShow(false)
-    }, 5000)
+    }, 3000)
   }, [])
 
   const handleClose = () => setShow(false)
