@@ -24,7 +24,7 @@ const App = () => {
   return (
     <Fragment>
       <NavBar user={user} />
-      <main className="main-container">
+      <main>
         <Route path='/sign-up' render={() => (
           <SignUp msgAlert={msgAlert} setUser={setUser} />
         )} />

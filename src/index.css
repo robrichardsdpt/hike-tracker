@@ -1,7 +1,6 @@
 html {
   background: black;
 }
-main {
-  height: 80vh;
-  overflow: scroll;
+#root {
+  background-color: black;
 }

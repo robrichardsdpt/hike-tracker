@@ -1,4 +1,5 @@
-.main-container {
+.main {
   height: 90vh;
   margin: 0 auto;
+  overflow: scroll;
 }
