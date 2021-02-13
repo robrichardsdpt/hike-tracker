@@ -4,11 +4,11 @@
   margin: 0 auto;
   margin-top: 25px;
   grid-template-columns: 30% 30% 30%;
+  justify-content: space-evenly;
 }
 .hike-card {
   border: 2px solid gold;
   border-radius: 15px;
-  margin: 10px;
   padding: 10px;
   background: rgba(0,0,0,0.6);
   min-width: 320px;
