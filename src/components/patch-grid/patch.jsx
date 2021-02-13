@@ -5,3 +5,5 @@ const Patch = ( {stats} ) => {
     <div>PATCH!</div>
   )
 }
+
+export default Patch
