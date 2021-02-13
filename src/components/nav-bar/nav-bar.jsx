@@ -7,10 +7,10 @@ import './nav-bar.styles.scss'
 
 const authenticatedOptions = (
   <Fragment>
-    <Link href="#home" className='navbar'>home</Link>
-    <Link href="#feed" className='navbar'>Feed</Link>
-    <Link href="#profile" className='navbar'>Profile</Link>
-    <Link href="#sign-out" className='navbar'>Sign Out</Link>
+    <Link to="/home" className='navbar'>home</Link>
+    <Link to="/feed" className='navbar'>Feed</Link>
+    <Link to="/profile" className='navbar'>Profile</Link>
+    <Link to="/sign-out" className='navbar'>Sign Out</Link>
   </Fragment>
 )
 
