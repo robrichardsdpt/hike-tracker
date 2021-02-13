@@ -1,0 +1,16 @@
+.navbar {
+  background: #000000;
+  color: #FFC312;
+  height: 5vh;
+}
+.navbar-link {
+  color:  #FFC312;
+  padding: 10px;
+
+  &:hover {
+    text-decoration: none;
+    color:  #FFC312;
+    transform: scale(1.1);
+    
+  }
+}
