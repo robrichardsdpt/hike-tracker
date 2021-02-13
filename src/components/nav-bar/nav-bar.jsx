@@ -8,8 +8,6 @@ import './nav-bar.styles.scss'
 const authenticatedOptions = (
   <Fragment>
     <Link to="/home" className='navbar'>home</Link>
-    <Link to="/feed" className='navbar'>Feed</Link>
-    <Link to="/profile" className='navbar'>Profile</Link>
     <Link to="/sign-out" className='navbar'>Sign Out</Link>
   </Fragment>
 )
@@ -24,7 +22,7 @@ const unauthenticatedOptions = (
 const NavBar = ({ user }) => {
   return (
     <Navbar className='navbar' expand="md">
-    <Link href="#home" className='navbar-link'>a hike from boston.</Link>
+    <Link to="/home" className='navbar-link'>a hike from boston.</Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
