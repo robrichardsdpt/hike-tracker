@@ -7,14 +7,17 @@ const HikeFeedCard = ({ hike }) => {
     <div className='date-title'><h3>{hike.date}</h3></div>
     {hike.picture && <div className='hike-picture-container'></div>}
     <div className='hike-information'>
-      <div className="hike-information-row">
-        <div className="hike-information-label">
-          HIKER:
-        </div>
+    {
+      hike.owner.email && 
+        <div className="hike-information-row">
+          <div className="hike-information-label">
+             HIKER:
+          </div>
         <div className="hike-information-data">
           {hike.owner.email}
         </div>
       </div>
+    }
       <div className="hike-information-row">
         <div className="hike-information-label">
           TRAIL:

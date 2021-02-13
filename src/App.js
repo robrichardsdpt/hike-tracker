@@ -10,6 +10,10 @@ import SignOut from './components/auth/sign-out'
 import ChangePassword from './components/auth/change-password'
 import Home from './components/home/home'
 import CreateHike from './components/create-hike/create-hike'
+import UserProfile from './components/user-profile/user-profile'
+import Fallroad from './Fallroad.jpg'
+import Presidentials from './Presidentials.jpg'
+import Waterfall from './Waterfall.jpg'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -21,10 +25,22 @@ const App = () => {
     setMsgAlerts([...msgAlerts, { heading, message, variant }])
   }
 
+  const backgroundArray = [Presidentials, Fallroad, Waterfall]
+  const randomBG = Math.floor(Math.random() * backgroundArray.length)
+  const background = {
+    backgroundImage: `url(${backgroundArray[randomBG]})`,
+    height: '90vh',
+    margin: '0 auto',
+    overflow: 'scroll',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    width: '100%'
+  }
   return (
     <Fragment>
       <NavBar user={user} />
-      <main>
+      <main style={background}>
         <Route path='/sign-up' render={() => (
           <SignUp msgAlert={msgAlert} setUser={setUser} />
         )} />
@@ -42,6 +58,9 @@ const App = () => {
         )} />
         <AuthenticatedRoute user={user} path='/change-password' render={() => (
           <ChangePassword msgAlert={msgAlert} user={user} />
+          )} />
+        <AuthenticatedRoute user={user} path='/profile' render={() => (
+          <UserProfile user={user} />
           )} />
         {msgAlerts.map((msgAlert, index) => (
           <AutoDismissAlert

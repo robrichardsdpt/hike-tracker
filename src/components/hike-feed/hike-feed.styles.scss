@@ -18,12 +18,14 @@
   justify-content: space-between;
 }
 .hike-information-label {
-  color: whitesmoke;
+  color: lightgoldenrodyellow;
 }
-hike-information-data {
+.hike-information-data {
   align-self: flex-end;
+  color: whitesmoke;
 }
 .date-title {
   border-bottom: 5px solid gray;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  color: lightgrey;
 }

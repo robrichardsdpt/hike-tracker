@@ -9,7 +9,8 @@ const authenticatedOptions = (
   <Fragment>
     <Link to="/home" className='navbar-link'>home</Link>
     <Link to="/create" className='navbar-link'>create</Link>
-    <Link to="/sign-out" className='navbar-link'>Sign Out</Link>
+    <Link to="/profile" className='navbar-link'>profile</Link>
+    <Link to="/sign-out" className='navbar-link'>sign out</Link>
   </Fragment>
 )
 
