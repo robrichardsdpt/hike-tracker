@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig.js'
+import HikeFeedCard from './hike-feed-card'
 import './hike-feed.styles.scss'
 
 const Feed = ({ user }) => {
@@ -19,11 +20,13 @@ const Feed = ({ user }) => {
 
   const hikesJsx = hikes.map(hike => {
     return(
-      <div key={hike._id}><h2>{hike.date}</h2></div>
+      <div key={hike._id}>
+      <HikeFeedCard hike={hike}/>
+      </div>
     )
   })
   return(
-    <div>{hikesJsx}</div>
+    <div className='hike-grid'>{hikesJsx}</div>
   )
 }
 

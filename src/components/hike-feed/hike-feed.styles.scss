@@ -1,0 +1,25 @@
+.hike-grid {
+  width: 90%;
+  display: grid;
+  margin: 0 auto;
+  margin-top: 25px;
+  grid-template-columns: 30% 30% 30%;
+}
+.hike-card {
+  border: 2px solid gold;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  background: rgba(0,0,0,0.6);
+}
+.hike-information-row{
+  display: flex;
+  justify-content: space-between;
+}
+.hike-information-label {
+  color: black;
+}
+.date-title {
+  border-bottom: 5px solid gray;
+  margin-bottom: 10px
+}

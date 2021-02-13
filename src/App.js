@@ -9,6 +9,7 @@ import SignIn from './components/auth/sign-in'
 import SignOut from './components/auth/sign-out'
 import ChangePassword from './components/auth/change-password'
 import Home from './components/home/home'
+import CreateHike from './components/create-hike/create-hike'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -32,6 +33,9 @@ const App = () => {
         )} />
         <AuthenticatedRoute user={user} path='/home' render={() => (
           <Home msgAlert={msgAlert} clearUser={clearUser} user={user} />
+        )} />
+        <AuthenticatedRoute user={user} path='/create' render={() => (
+          <CreateHike msgAlert={msgAlert} user={user} />
         )} />
         <AuthenticatedRoute user={user} path='/sign-out' render={() => (
           <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
