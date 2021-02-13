@@ -10,7 +10,6 @@ import SignOut from './components/auth/sign-out'
 import ChangePassword from './components/auth/change-password'
 import Home from './components/home/home'
 
-
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
