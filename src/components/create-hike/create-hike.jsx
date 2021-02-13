@@ -1,17 +1,47 @@
+import axios from 'axios'
 import React, { useState } from 'react'
+import apiUrl from '../../apiConfig.js'
 import './create-hike.styles.scss'
 
-const CreateHike = ({ user, msgAlerts }) => {
+const CreateHike = ({ user, msgAlert }) => {
   const [newHike, setNewHike] = useState({})
 
   const handleChange = (event) => {
-    setNewHike({ [event.target.name]: event.target.value })    
+    event.persist()
+    setNewHike((prevPost) => {
+      const updatedPost = { [event.target.name]: event.target.value }
+      const editedPost = Object.assign({}, prevPost, updatedPost)
+      return editedPost
+    })
+  }
+
+  const onSubmitHike = (e) => {
+    e.preventDefault()
+    axios({
+      url: `${apiUrl}/hikes/`,
+      method: 'POST',
+      headers: {
+        Authorization: `Token token=${user.token}`
+      },
+      data: {
+        hike: newHike
+      }
+    })
+    .then(() => msgAlert({
+      heading: 'Hike Created!',
+      variant: 'success'
+    }))
+    .then(() => setNewHike({}))
+    .catch(() => msgAlert({
+      heading: 'Unable to create hike!',
+      variant: 'failure'
+    }))
   }
 
   console.log(newHike)
   return (
     <div className='create-hike-container'>
-    <form id='create-hike'>
+    <form id='create-hike' onSubmit={onSubmitHike}>
       <h2 className='create-hike-title'>Create a Hike</h2>
       <label className='create-hike-label'>Date:</label>
       <input className='create-hike-input' name='date' id='date' type='date' onChange={handleChange} placeholder='When did you go?'/>
