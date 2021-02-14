@@ -49,6 +49,16 @@ const listOfNH4k = [
   'tecumseh'
 ]
 
+const listOfME4k = [
+  'baxter', 'hamlin', 'sugarloaf', 'crocker', 'old speck', 'north brother',  'bigelow west', 'saddleback', 'bigelow avery', 'abraham', 'south crocker', 'saddleback horn', 'redington', 'spaulding'
+]
+
+const listOfVT4k = [
+  'mansfield', 'killington', "camel's hump", 'ellen', 'abraham'
+]
+
 module.exports = {
-  listOfNH4k
+  listOfNH4k,
+  listOfME4k,
+  listOfVT4k
 }
