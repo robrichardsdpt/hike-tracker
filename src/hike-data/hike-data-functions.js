@@ -37,5 +37,6 @@ console.log(mountainsTable)
 module.exports = {
   hikeTotalDistance,
   hikeTotalElevation,
-  mountainsClimbedToTable
+  mountainsClimbedToTable,
+  mountainsTable
 }

@@ -1,0 +1,20 @@
+.patch-grid {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+}
+
+.patch-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.patch-image-container {
+  width: 90%;
+}
+.patch-image {
+  width: 90%;
+  object-fit: cover;
+}
