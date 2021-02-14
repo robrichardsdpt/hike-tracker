@@ -22,7 +22,7 @@ const UserProfile = ({ user }) => {
   const hikesJsx = hikes.map(hike => {
     return(
       <div key={hike._id}>
-      <HikeFeedCard hike={hike}/>
+      <HikeFeedCard hike={hike} user={user} profile={true}/>
       </div>
     )
   })

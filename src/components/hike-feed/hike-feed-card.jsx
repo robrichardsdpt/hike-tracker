@@ -1,14 +1,25 @@
+import userEvent from '@testing-library/user-event'
 import React from 'react'
 import './hike-feed.styles.scss'
 
-const HikeFeedCard = ({ hike }) => {
+const HikeFeedCard = ({ hike, user, profile }) => {
+
+  const update = () => {
+    console.log('click')
+  }
+
   return(
     <div className='hike-card'>
-    <div className='date-title'><h3>{hike.date}</h3></div>
+    <div className='date-title'>
+      <div><h3>{hike.date}</h3></div>
+      <div><h4>    {
+        hike.owner.email === user.email && <div className='click-to-edit' onClick={update}>...</div>
+      }</h4></div>
+    </div>
     {hike.picture && <div className='hike-picture-container'></div>}
     <div className='hike-information'>
     {
-      hike.owner.email && 
+      !profile && hike.owner.email !== user.email && 
         <div className="hike-information-row">
           <div className="hike-information-label">
              HIKER:

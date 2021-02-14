@@ -28,4 +28,15 @@
   border-bottom: 5px solid gray;
   margin-bottom: 10px;
   color: lightgrey;
+  display: flex;
+  justify-content: space-between;
+}
+
+.click-to-edit {
+  transform: rotateZ(90deg);
+}
+
+.click-to-edit:hover {
+  cursor: pointer;
+  transform: scale(1.1) rotateZ(90deg);
 }
