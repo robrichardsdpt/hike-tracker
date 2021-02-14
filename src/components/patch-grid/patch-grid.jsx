@@ -1,10 +1,10 @@
 import React from 'react'
-import Patch from './patch'
+import Nh48Patch from './nh48-patch'
 import './patch-grid.styles.scss'
 
-const PatchGrid = ({ user, stats }) => {
+const PatchGrid = ({ mountainTable }) => {
   return (
-    <div className='patch-grid'><Patch /></div>
+    <div className='patch-grid'><Nh48Patch /></div>
   )
 }
 

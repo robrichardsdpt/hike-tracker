@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Patch = ( {stats} ) => {
+const Nh48Patch = ({ hikes }) => {
   return(
     <div>PATCH!</div>
   )
 }
 
-export default Patch
+export default Nh48Patch
