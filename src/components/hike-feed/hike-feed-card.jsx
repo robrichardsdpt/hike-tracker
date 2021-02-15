@@ -2,7 +2,7 @@ import React from 'react'
 import Moment from 'react-moment'
 import './hike-feed.styles.scss'
 
-const HikeFeedCard = ({ hike, user, profile }) => {
+const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
 
   const update = () => {
     console.log('click')

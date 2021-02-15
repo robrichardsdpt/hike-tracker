@@ -4,9 +4,15 @@ import HikeFeedCard from '../hike-feed/hike-feed-card'
 import UserInfo from './user-info'
 import axios from 'axios'
 import './user-profile.styles.scss'
+import EditModal from '../edit-modal/edit-modal.jsx'
 
 const UserProfile = ({ user }) => {
   const [hikes, setHikes] = useState([])
+  const [hikeId, setHikeId] = useState()
+  const [show, setShow] = useState(false)
+
+  const handleUpdateClick = () => setShow(true)
+  const handleClose = () => setShow(false) 
 
   useEffect(() => {
     axios({
@@ -22,7 +28,7 @@ const UserProfile = ({ user }) => {
   const hikesJsx = hikes.map(hike => {
     return(
       <div key={hike._id}>
-      <HikeFeedCard hike={hike} user={user} profile={true}/>
+      <HikeFeedCard hike={hike} user={user} profile={true} handleUpdateClick={handleUpdateClick}/>
       </div>
     )
   })
@@ -34,6 +40,7 @@ const UserProfile = ({ user }) => {
       <div className='hike-grid'>
         {hikesJsx}
       </div>
+      <EditModal show={show} handleClose={handleClose} setHikeId={setHikeId} hikeId={hikeId}/>
     </div>
   )
 }

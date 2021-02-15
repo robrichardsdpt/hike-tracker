@@ -73,7 +73,9 @@ const listOfVT4k = [
 const listOfNE4k = [...listOfNH4k, ...listOfVT4k, ...listOfME4k]
 
 const listOf100 = [
-  ...listOfNE4k,
+  ...listOfNH4k,
+  ...listOfME4k,
+  ...listOfVT4k, 
   'sandwich',
   'south brother',
   'snow mountain',

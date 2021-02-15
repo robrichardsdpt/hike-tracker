@@ -6,6 +6,7 @@ import './hike-feed.styles.scss'
 
 const Feed = ({ user }) => {
   const [hikes, setHikes] = useState([])
+  const [hikeId, setHikeId] = useState()
 
   useEffect(() => {
     axios({
@@ -22,7 +23,7 @@ const Feed = ({ user }) => {
     let profile
     return(
       <div key={hike._id}>
-      <HikeFeedCard hike={hike} user={user} profile={profile=false}/>
+      <HikeFeedCard hike={hike} user={user} profile={profile=false} setHikeId={setHikeId}/>
       </div>
     )
   })
