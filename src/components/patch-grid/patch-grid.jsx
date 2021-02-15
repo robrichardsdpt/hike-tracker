@@ -1,6 +1,7 @@
 import React from 'react'
 import Nh48Patch from './patches/nh48-patch'
 import Ne67Patch from './patches/ne67-patch'
+import Ne100Patch from './patches/ne100-patch'
 import WashingtonPatch from './patches/washington-patch'
 import './patch-grid.styles.scss'
 import CenturyPatch from './patches/century-patch'
@@ -12,6 +13,7 @@ const PatchGrid = ({ mountainsTable, totalDistance, totalElevation }) => {
     <div className='patch-grid'>
       <Nh48Patch mountainsTable={mountainsTable} />
       <Ne67Patch mountainsTable={mountainsTable} />
+      <Ne100Patch mountainsTable={mountainsTable} />
       {mountainsTable['washington'] ? <WashingtonPatch mountainsTable= {mountainsTable} /> : ''}
       <CenturyPatch totalDistance ={totalDistance}/>
       <ElevationCenturyPatch totalElevation={totalElevation}/>

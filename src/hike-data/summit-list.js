@@ -1,3 +1,16 @@
+const listOfSkyline = [
+  'blue hills',
+  'fells',
+  'prospect hill',
+  "world's end",
+  'arboreturm',
+  'lars andersson',
+  'washington tower',
+  'bunker hill',
+  'piers park',
+  'longfellow bridge'
+]
+
 const listOfNH4k = [
   'washington',
   'adams',
@@ -59,9 +72,47 @@ const listOfVT4k = [
 
 const listOfNE4k = [...listOfNH4k, ...listOfVT4k, ...listOfME4k]
 
+const listOf100 = [
+  ...listOfNE4k,
+  'sandwich',
+  'south brother',
+  'snow mountain',
+  'pico peak',
+  'the bulge',
+  'stratton',
+  'nancy',
+  'the horn',
+  'weeks',
+  'south weeks',
+  'goose eye',
+  'vose spur',
+  'fort',
+  'jay peak',
+  'white cap',
+  'boundary peak',
+  'equinox',
+  'mendon peak',
+  'east sleeper',
+  'bread loaf',
+  'peak above the nubble',
+  'bigelow, south horn',
+  'coe',
+  'east kennebago',
+  'wilson',
+  'big jay',
+  'snow',
+  'baldpate',
+  'kennebago divide',
+  'scar ridge',
+  'elephant',
+  'dorset',
+  'cannon balls'
+]
+
 module.exports = {
   listOfNH4k,
   listOfME4k,
   listOfVT4k,
-  listOfNE4k
+  listOfNE4k,
+  listOf100
 }
