@@ -1,5 +1,6 @@
 {
   "name": "hike-tracker-react",
+  "homepage": "https://robrichardsdpt.github.io/hike-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
