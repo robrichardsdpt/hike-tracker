@@ -29,11 +29,11 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
         <PieChart width={200} height={200}>
           <Pie
             data={data}
-            cx={125}
-            cy={125}
+            cx={100}
+            cy={100}
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={60}
+            outerRadius={80}
             fill="#8884d8"
             dataKey="value"
           >
