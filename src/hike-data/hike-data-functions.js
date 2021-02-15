@@ -8,7 +8,7 @@ const hikeTotalElevation = (hikes) => hikes.reduce((accumulator, hike) => {
 const mountainsTable = {}
 const mountainsClimbedToTable = (hikes) => {
   const mountainsClimbedArray = hikes.map(hike => {
-    return hike.mountainsClimbed.toLowerCase()
+    return hike.mountainsClimbed?.toLowerCase()
   })
   mountainsClimbedArray.forEach(mountain => mountainsTable[mountain] ? mountainsTable[mountain]++ : mountainsTable[mountain] = 1)
   console.log(mountainsTable)

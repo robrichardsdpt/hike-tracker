@@ -45,3 +45,19 @@
       color: whitesmoke;
   }
 }
+.delete-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+.edit-hike-button-delete {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #FFC312;
+  font-weight: bolder;
+
+  &:hover{
+      background: #FFC312;;
+      color: whitesmoke;
+  }
+}

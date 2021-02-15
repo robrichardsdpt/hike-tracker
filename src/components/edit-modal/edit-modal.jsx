@@ -6,6 +6,8 @@ import './edit-modal.styles.scss'
 
 const EditModal = ({user, hikeId , show, handleClose}) => {
   const [hike, setHike] = useState({})
+  const [deleteShow, setDeleteShow] = useState(false)
+  const [updateHike, setUpdateHike] = useState(false)
 
   const handleChange = (event) => {
     event.persist()
@@ -27,6 +29,22 @@ const EditModal = ({user, hikeId , show, handleClose}) => {
       data: { hike }
     })
     .then(() => handleClose())
+    .then(() => setUpdateHike(true))
+    .catch((err) => console.error(err))
+  }
+
+  const deleteItem = (e) => {
+    e.preventDefault()
+    axios({
+      url: `${apiUrl}/hikes/${hikeId}`,
+      method: 'DELETE',
+      headers: {
+        Authorization: `Token token=${user.token}`
+      }
+    })
+    .then(() => setDeleteShow(true))
+    .then(() => handleClose())
+    
     .catch((err) => console.error(err))
   }
   
@@ -39,7 +57,7 @@ const EditModal = ({user, hikeId , show, handleClose}) => {
       },
     })
     .then((res) => setHike(res.data.hike))
-  }, [show])
+  }, [updateHike])
 
   console.log(hike)
   return(
@@ -68,6 +86,10 @@ const EditModal = ({user, hikeId , show, handleClose}) => {
         <textarea className='edit-hike-input' name='trailNotes' onChange={handleChange} value={hike.trailNotes}/>
         <input type='submit' className='edit-hike-button' value='Save Changes'/>
       </form>
+      <div className='delete-button-container'>
+      <button className='edit-hike-button-delete' onClick={() => setDeleteShow(true)}>Delete</button>
+      {deleteShow && <><button className='edit-hike-button-delete warning' onClick={deleteItem}>Confirm Delete!</button><button className='edit-hike-button-delete' onClick={()=>setDeleteShow(false)}>Cancel</button></>}
+      </div>
     </Modal.Body>
   </Modal>
   </div>
