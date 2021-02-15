@@ -11,7 +11,11 @@ const UserProfile = ({ user }) => {
   const [hikeId, setHikeId] = useState()
   const [show, setShow] = useState(false)
 
-  const handleUpdateClick = () => setShow(true)
+  const handleUpdateClick = (event) => {
+    setShow(true)
+    setHikeId(event.target.id)
+    console.log(event.target.id)
+  }
   const handleClose = () => setShow(false) 
 
   useEffect(() => {
@@ -40,7 +44,7 @@ const UserProfile = ({ user }) => {
       <div className='hike-grid'>
         {hikesJsx}
       </div>
-      <EditModal show={show} handleClose={handleClose} setHikeId={setHikeId} hikeId={hikeId}/>
+      <EditModal show={show} handleClose={handleClose} setHikeId={setHikeId} hikeId={hikeId} user={user}/>
     </div>
   )
 }
