@@ -16,7 +16,19 @@ const EditModal = ({user, hikeId , show, handleClose}) => {
     })
   }
 
-  const handleSave = () => console.log('click')
+  const handleSave = (e) => {
+    e.preventDefault()
+    axios({
+      url: `${apiUrl}/hikes/${hikeId}`,
+      method: 'PATCH',
+      headers: {
+        Authorization: `Token token=${user.token}`
+      },
+      data: { hike }
+    })
+    .then(() => handleClose())
+    .catch((err) => console.error(err))
+  }
   
   useEffect(() => {
     axios({
@@ -31,40 +43,34 @@ const EditModal = ({user, hikeId , show, handleClose}) => {
 
   console.log(hike)
   return(
-    <Modal show={show} onHide={handleClose}>
-    <Modal.Header closeButton>
-      <Modal.Title>Modal heading</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-    <form id='edit-hike'>
-      <h2 className='edit-hike-title'>Edit Hike</h2>
-      <label className='edit-hike-label'>Date:</label>
-      <input className='edit-hike-input' name='date' id='date' type='date' onChange={handleChange} value={hike.date}/>
-      <label className='edit-hike-label'>Trails:</label>
-      <input className='edit-hike-input' name='trails' id='trails' type='text' onChange={handleChange} value={hike.trails}/>
-      <label className='edit-hike-label'>Distance (miles):</label>
-      <input className='edit-hike-input' name='distance' id='distance' type='number' step='0.1' min='0' onChange={handleChange} value={hike.distance}/>
-      <label className='edit-hike-label'>Elevation (in feet):</label>
-      <input className='edit-hike-input' name='elevation' id='elevation' type='number' step='0.1' min='0' onChange={handleChange} value={hike.elevation}/>
-      <label className='edit-hike-label'>Time taken(HH:MM:SS):</label>
-      <input className='edit-hike-input' name='timeTaken' id='timeTaken' type='text' onChange={handleChange} value={hike.timeTaken}/>
-      <label className='edit-hike-label'>Mountains Climbed:</label>
-      <input className='edit-hike-input' name='mountainsClimbed' id='mountainsClimbed' type='text' onChange={handleChange} value={hike.mountainsClimbed}/>
-      <label className='edit-hike-label'>Who did you hike with?:</label>
-      <input className='edit-hike-input' name='hikedWith' type='text' onChange={handleChange} value={hike.hikedWith}/>
-      <label className='edit-hike-label'>Elevation</label>
-      <textarea className='edit-hike-input' name='trailNotes' onChange={handleChange} value={hike.trailNotes}/>
-    </form>
+    <div >
+    <Modal show={show} onHide={handleClose} className='edit-hike-container'>
+      <Modal.Header closeButton className='edit-hike-title'>
+        <Modal.Title>Edit Hike</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className='edit-hike-body'>
+      <form id='edit-hike' onSubmit={handleSave}>
+        <label className='edit-hike-label'>Date:</label>
+        <input className='edit-hike-input' name='date' id='date' type='date' onChange={handleChange} value={hike.date}/>
+        <label className='edit-hike-label'>Trails:</label>
+        <input className='edit-hike-input' name='trails' id='trails' type='text' onChange={handleChange} value={hike.trails}/>
+        <label className='edit-hike-label'>Distance (miles):</label>
+        <input className='edit-hike-input' name='distance' id='distance' type='number' step='0.1' min='0' onChange={handleChange} value={hike.distance}/>
+        <label className='edit-hike-label'>Elevation (in feet):</label>
+        <input className='edit-hike-input' name='elevation' id='elevation' type='number' step='0.1' min='0' onChange={handleChange} value={hike.elevation}/>
+        <label className='edit-hike-label'>Time taken(HH:MM:SS):</label>
+        <input className='edit-hike-input' name='timeTaken' id='timeTaken' type='text' onChange={handleChange} value={hike.timeTaken}/>
+        <label className='edit-hike-label'>Mountains Climbed:</label>
+        <input className='edit-hike-input' name='mountainsClimbed' id='mountainsClimbed' type='text' onChange={handleChange} value={hike.mountainsClimbed}/>
+        <label className='edit-hike-label'>Who did you hike with?:</label>
+        <input className='edit-hike-input' name='hikedWith' type='text' onChange={handleChange} value={hike.hikedWith}/>
+        <label className='edit-hike-label'>Trail Notes:</label>
+        <textarea className='edit-hike-input' name='trailNotes' onChange={handleChange} value={hike.trailNotes}/>
+        <input type='submit' className='edit-hike-button' value='Save Changes'/>
+      </form>
     </Modal.Body>
-    <Modal.Footer>
-      <button variant="secondary" onClick={handleClose}>
-        Close
-      </button>
-      <button variant="primary" onClick={handleSave}>
-        Save Changes
-      </button>
-    </Modal.Footer>
   </Modal>
+  </div>
   )
 }
 

@@ -1,0 +1,47 @@
+.edit-hike-title {
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  color: #FFC312;
+  border: solid 2px #FFC312;
+}
+
+.edit-hike-footer {
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    color: #FFC312;
+    border: solid 2px #FFC312;
+}
+
+.edit-hike-input {
+  display: block;
+  width: 75%;
+  margin: 5px auto;
+}
+.edit-hike-body {
+  background: whitesmoke;
+}
+.edit-hike-label {
+  margin-left: 25px;
+  font-weight: bolder;
+}
+
+.edit-hike-container {
+  min-width: 350px;
+  width: 50%;
+  margin: 50px auto;
+  border-radius: 15px;
+}
+
+.edit-hike-button {
+  border: none;
+  margin: 25px 50px 25px 75px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #FFC312;
+  font-weight: bolder;
+
+  &:hover{
+      background: #FFC312;;
+      color: whitesmoke;
+  }
+}

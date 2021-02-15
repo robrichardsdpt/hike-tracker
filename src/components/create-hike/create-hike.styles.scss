@@ -6,11 +6,12 @@
 .create-hike-input {
   display: block;
   width: 75%;
-  margin: 10px auto;
+  margin: 5px auto;
 }
 
 .create-hike-label {
   margin-left: 75px;
+  font-weight: bolder;
 }
 
 .create-hike-container {
@@ -25,7 +26,7 @@
 
 .create-hike-button {
   border: none;
-  margin: 25px 50px 25px 75px;
+  margin: 15px 50px 25px 75px;
   padding: 10px 15px;
   border-radius: 10px;
   background: #FFC312;

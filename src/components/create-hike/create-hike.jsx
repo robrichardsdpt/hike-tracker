@@ -57,7 +57,7 @@ const CreateHike = ({ user, msgAlert }) => {
       <input className='create-hike-input' name='mountainsClimbed' id='mountainsClimbed' type='text' onChange={handleChange} placeholder='Which peaks?'/>
       <label className='create-hike-label'>Who did you hike with?:</label>
       <input className='create-hike-input' name='hikedWith' type='text' onChange={handleChange} placeholder="Who'd you drag along?"/>
-      <label className='create-hike-label'>Elevation</label>
+      <label className='create-hike-label'>Trail Notes:</label>
       <textarea className='create-hike-input' name='trailNotes' onChange={handleChange} placeholder='Any field notes?'/>
       <button className='create-hike-button'>Create Hike!</button>
     </form>
