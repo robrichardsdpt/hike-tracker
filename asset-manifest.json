@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/hike-tracker/static/css/main.cdd8b33c.chunk.css",
-    "main.js": "/hike-tracker/static/js/main.5a7b8aaa.chunk.js",
-    "main.js.map": "/hike-tracker/static/js/main.5a7b8aaa.chunk.js.map",
+    "main.js": "/hike-tracker/static/js/main.cb0a1d28.chunk.js",
+    "main.js.map": "/hike-tracker/static/js/main.cb0a1d28.chunk.js.map",
     "runtime-main.js": "/hike-tracker/static/js/runtime-main.408180b5.js",
     "runtime-main.js.map": "/hike-tracker/static/js/runtime-main.408180b5.js.map",
     "static/css/2.150d169a.chunk.css": "/hike-tracker/static/css/2.150d169a.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.150d169a.chunk.css",
     "static/js/2.e213769f.chunk.js",
     "static/css/main.cdd8b33c.chunk.css",
-    "static/js/main.5a7b8aaa.chunk.js"
+    "static/js/main.cb0a1d28.chunk.js"
   ]
 }
