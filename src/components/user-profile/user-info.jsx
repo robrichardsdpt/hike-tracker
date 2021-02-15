@@ -9,9 +9,10 @@ const UserInfo = ({ user, hikes }) => {
   const totalDistance = hikeTotalDistance(hikes)
   const totalElevation = hikeTotalElevation(hikes)
   return(
-    <div className='profile-information'>{user.email} <br/>
-      You have done {hikes.length} hikes! <br/>
-      You have hiked {totalDistance} miles and climbed {totalElevation} feet so far!
+    <div className='profile-information'><h3>{user.email}</h3>
+      <h4>Hikes logged: {hikes.length}</h4>
+      <h4>Total distance: {totalDistance} miles </h4>
+      <h4>Total distance climbed: {totalElevation} feet</h4>
       {mountainsTable && <PatchGrid mountainsTable={mountainsTable} totalDistance={totalDistance} totalElevation={totalElevation}/>}
     </div>
   )
