@@ -1,10 +1,14 @@
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell } from 'recharts';
 
+const ProgressChart = ({ hikes, totalPeaks }) => {
+console.log(hikes.length)
+const hikesLength = hikes.length
 const data = [
-  { name: 'Hikes completed', value: 400 },
-  { name: 'Hikes to go!', value: 300 },
+  { name: 'Remaining', value: totalPeaks - hikesLength},
+  { name: 'Completed', value: hikesLength }
 ];
+console.log(data)
 
 const COLORS = ['#0088FE', '#00C49F'];
 
@@ -21,27 +25,28 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
-export default class Example extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/c9pL8k61/';
 
-  render() {
     return (
-      <PieChart width={400} height={400}>
-        <Pie
-          data={data}
-          cx={200}
-          cy={200}
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={80}
-          fill="#8884d8"
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
+      <div>
+        <PieChart width={200} height={200}>
+          <Pie
+            data={data}
+            cx={125}
+            cy={125}
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={60}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
+            {Math.floor(hikesLength/totalPeaks *100)} % toward goal
+      </div>
     );
   }
-}
+
+  export default ProgressChart
