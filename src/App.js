@@ -14,6 +14,16 @@ import UserProfile from './components/user-profile/user-profile'
 import Fallroad from './Fallroad.jpg'
 import Presidentials from './Presidentials.jpg'
 import Waterfall from './Waterfall.jpg'
+import HuntingtonRavine  from './huntingtonravine.jpg'
+import LincolnWoods from './lincolnwoods.jpg'
+import Rainbow from './rainbow.jpg'
+import Trail from './trail.jpg'
+import WashingtonCrawford from './washingtoncrawford.jpg'
+import River from './river.jpg'
+import SunrisePemi from './sunrisepemi.jpg'
+import WinterWhites from './winterwhites.jpg'
+import BlueWinter from './bluewinter.jpg'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -25,7 +35,7 @@ const App = () => {
     setMsgAlerts([...msgAlerts, { heading, message, variant }])
   }
 
-  const backgroundArray = [Presidentials, Fallroad, Waterfall]
+  const backgroundArray = [Presidentials, Fallroad, Waterfall, HuntingtonRavine, LincolnWoods, Rainbow, Trail, WashingtonCrawford, River, WinterWhites, BlueWinter, River, SunrisePemi]
   const randomBG = Math.floor(Math.random() * backgroundArray.length)
   const background = {
     backgroundImage: `url(${backgroundArray[randomBG]})`,
