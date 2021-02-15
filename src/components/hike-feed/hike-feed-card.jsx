@@ -37,54 +37,72 @@ const HikeFeedCard = ({ hike, user, profile }) => {
           {hike.trails}
         </div>
       </div>
-      <div className="hike-information-row">
-        <div className="hike-information-label">
-          SUMMITS:
+      {
+        hike.mountainsClimbed &&
+        <div className="hike-information-row">
+          <div className="hike-information-label">
+            SUMMITS:
+          </div>
+          <div className="hike-information-data">
+            {hike.mountainsClimbed}
+          </div>
         </div>
-        <div className="hike-information-data">
-          {hike.mountainsClimbed}
+      }
+      {
+        hike.distance &&
+        <div className="hike-information-row">
+          <div className="hike-information-label">
+            DISTANCE:
+          </div>
+          <div className="hike-information-data">
+            {hike.distance}
+          </div>
         </div>
-      </div>
-      <div className="hike-information-row">
-        <div className="hike-information-label">
-          DISTANCE:
+      }
+      {
+        hike.elevation &&
+        <div className="hike-information-row">
+          <div className="hike-information-label">
+            ELEVATION GAIN:
+          </div>
+          <div className="hike-information-data">
+            {hike.elevation}
+          </div>
         </div>
-        <div className="hike-information-data">
-          {hike.distance}
+      }
+      {
+        hike.timeTaken &&
+        <div className="hike-information-row">
+          <div className="hike-information-label">
+            TIME TAKEN:
+          </div>
+          <div className="hike-information-data">
+            {hike.timeTaken}
+          </div>
         </div>
-      </div>
-      <div className="hike-information-row">
-        <div className="hike-information-label">
-          ELEVATION GAIN:
+      }
+      {
+        hike.hikedWith &&
+        <div className="hike-information-row">
+          <div className="hike-information-label">
+            HIKED WITH:
+          </div>
+          <div className="hike-information-data">
+            {hike.hikedWith}
+          </div>
         </div>
-        <div className="hike-information-data">
-          {hike.elevation}
+      }
+      {
+        hike.trailNotes &&
+        <div>
+          <div className="hike-information-label">
+            TRAIL NOTES:
+          </div>
+          <div className="hike-information-data">
+           {hike.trailNotes}
+          </div>
         </div>
-      </div>
-      <div className="hike-information-row">
-        <div className="hike-information-label">
-          TIME TAKEN:
-        </div>
-        <div className="hike-information-data">
-          {hike.timeTaken}
-        </div>
-      </div>
-      <div className="hike-information-row">
-        <div className="hike-information-label">
-          HIKED WITH:
-        </div>
-        <div className="hike-information-data">
-          {hike.hikedWith}
-        </div>
-      </div>
-      <div>
-        <div className="hike-information-label">
-          TRAIL NOTES:
-        </div>
-        <div className="hike-information-data">
-          {hike.trailNotes}
-        </div>
-      </div>
+      }
     </div>
   </div>
   )
