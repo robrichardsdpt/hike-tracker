@@ -12,7 +12,7 @@ const UserInfo = ({ user, hikes }) => {
     <div className='profile-information'>{user.email} <br/>
       You have done {hikes.length} hikes! <br/>
       You have hiked {totalDistance} miles and climbed {totalElevation} feet so far!
-    {mountainsTable && <PatchGrid mountainsTable={mountainsTable} totalDistance={totalDistance} totalElevation={totalElevation}/>}
+      {mountainsTable && <PatchGrid mountainsTable={mountainsTable} totalDistance={totalDistance} totalElevation={totalElevation}/>}
     </div>
   )
 }

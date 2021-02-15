@@ -1,5 +1,5 @@
-import userEvent from '@testing-library/user-event'
 import React from 'react'
+import Moment from 'react-moment'
 import './hike-feed.styles.scss'
 
 const HikeFeedCard = ({ hike, user, profile }) => {
@@ -7,11 +7,11 @@ const HikeFeedCard = ({ hike, user, profile }) => {
   const update = () => {
     console.log('click')
   }
-
+  console.log(profile)
   return(
     <div className='hike-card'>
     <div className='date-title'>
-      <div><h3>{hike.date}</h3></div>
+      <div><h3><Moment format="MM/DD/YYYY">{hike.date}</Moment></h3></div>
       <div><h4>    {
         hike.owner.email === user.email && <div className='click-to-edit' onClick={update}>...</div>
       }</h4></div>
@@ -19,7 +19,7 @@ const HikeFeedCard = ({ hike, user, profile }) => {
     {hike.picture && <div className='hike-picture-container'></div>}
     <div className='hike-information'>
     {
-      !profile && hike.owner.email !== user.email && 
+      profile === false && 
         <div className="hike-information-row">
           <div className="hike-information-label">
              HIKER:
