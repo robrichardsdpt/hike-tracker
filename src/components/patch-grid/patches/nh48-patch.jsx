@@ -1,8 +1,8 @@
 import React from 'react'
-import { listOfNH4k } from '../../hike-data/summit-list'
-import ProgressChart from './pie-chart'
-import NhPatch from '../../amc4000.gif'
-import './patch-grid.styles.scss'
+import { listOfNH4k } from '../../../hike-data/summit-list'
+import ProgressChart from '../pie-chart'
+import NhPatch from '../../../amc4000.gif'
+import './../patch-grid.styles.scss'
 
 
 const Nh48Patch = ({ mountainsTable }) => {

@@ -1,14 +1,13 @@
 import React from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
 
-const ProgressChart = ({ hikes, totalPeaks }) => {
-const hikesLength = hikes.length
+const ProgressChart = ({ completed, total }) => {
 const data = [
-  { name: 'Remaining', value: totalPeaks - hikesLength},
-  { name: 'Completed', value: hikesLength }
+  { name: 'Remaining', value: total - completed},
+  { name: 'Completed', value: completed }
 ]
 
-const COLORS = ['#0088FE', '#00C49F'];
+const COLORS = ['#FE8800', '#9FC49F'];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -42,7 +41,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
             ))}
           </Pie>
         </PieChart>
-            {Math.floor(hikesLength/totalPeaks *100)} % toward goal
+          {Math.floor(completed/total *100)} % toward goal
       </div>
     );
   }

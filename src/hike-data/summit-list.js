@@ -57,8 +57,11 @@ const listOfVT4k = [
   'mansfield', 'killington', "camel's hump", 'ellen', 'abraham'
 ]
 
+const listOfNE4k = [...listOfNH4k, ...listOfVT4k, ...listOfME4k]
+
 module.exports = {
   listOfNH4k,
   listOfME4k,
-  listOfVT4k
+  listOfVT4k,
+  listOfNE4k
 }

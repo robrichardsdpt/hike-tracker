@@ -4,16 +4,15 @@ import { hikeTotalDistance, hikeTotalElevation, mountainsClimbedToTable, mountai
 import './user-profile.styles.scss'
 
 const UserInfo = ({ user, hikes }) => {
-  const [mountainTable, setMountainTable] = useState({})
-      
   
   mountainsClimbedToTable(hikes)
-  console.log(mountainsTable)
+  const totalDistance = hikeTotalDistance(hikes)
+  const totalElevation = hikeTotalElevation(hikes)
   return(
     <div className='profile-information'>{user.email} <br/>
       You have done {hikes.length} hikes! <br/>
-      You have hiked {hikeTotalDistance(hikes)} miles and climbed {hikeTotalElevation(hikes)} feet so far!
-    {mountainTable && <PatchGrid mountainsTable={mountainsTable} />}
+      You have hiked {totalDistance} miles and climbed {totalElevation} feet so far!
+    {mountainsTable && <PatchGrid mountainsTable={mountainsTable} totalDistance={totalDistance} totalElevation={totalElevation}/>}
     </div>
   )
 }

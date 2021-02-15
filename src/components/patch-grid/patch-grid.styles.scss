@@ -1,7 +1,9 @@
 .patch-grid {
   display: grid;
   grid-template-columns: 45% 45%;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  max-height: 500px;
+  overflow: scroll;
 }
 
 .patch-card {
@@ -11,6 +13,7 @@
   border-radius: 15px;
   border: white 2px solid;
   padding: 10px;
+  margin: 20px 0px;
 }
 
 .patch-image-container {
