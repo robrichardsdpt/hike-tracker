@@ -27,7 +27,69 @@
   width: 150px;
   overflow:hidden;
   border-radius: 15px;
-  margin: auto;
+  margin: 10px auto;
   border: 2px solid gold;
 }
+.image-click:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 
+}
+
+.edit-user-title {
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  color: #FFC312;
+  border: solid 2px #FFC312;
+}
+
+.edit-user-footer {
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    color: #FFC312;
+    border: solid 2px #FFC312;
+}
+
+.edit-user-input {
+  display: block;
+  width: 75%;
+  margin: 5px auto;
+}
+.edit-user-body {
+  background: whitesmoke;
+}
+.edit-user-label {
+  margin-left: 25px;
+  font-weight: bolder;
+}
+
+.edit-user-container {
+  min-width: 350px;
+  width: 50%;
+  margin: 50px auto;
+  border-radius: 15px;
+}
+
+.edit-user-button {
+  border: none;
+  margin: 25px 50px 25px 75px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #FFC312;
+  font-weight: bolder;
+
+  &:hover{
+      background: #FFC312;;
+      color: whitesmoke;
+  }
+}
+.user-picture-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.user-picture {
+  height: 300px;
+  width: 300px;
+  overflow: hidden;
+}

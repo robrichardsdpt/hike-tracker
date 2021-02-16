@@ -7,7 +7,7 @@ import './user-profile.styles.scss'
 import EditModal from '../edit-modal/edit-modal.jsx'
 import SearchBar from '../search-bar/search-bar.jsx'
 
-const UserProfile = ({ user }) => {
+const UserProfile = ({ user, handleUserImageChange }) => {
   const [hikes, setHikes] = useState([])
   const [hikeId, setHikeId] = useState()
   const [show, setShow] = useState(false)
@@ -51,13 +51,14 @@ const UserProfile = ({ user }) => {
       </div>
     )
   })
+  console.log(user)
   return(
     <div className='profile-container'>
       <div className='profile-info'>
-        <UserInfo user={user} hikes={hikes}/>
+        <UserInfo user={user} hikes={hikes} handleUserImageChange={handleUserImageChange}/>
       </div>
       <div className='search-container'>
-      <SearchBar handleSearchContents={handleSearchContents}/>
+        <SearchBar handleSearchContents={handleSearchContents}/>
       </div>
       <div className='hike-grid'>
         {hikesJsx}

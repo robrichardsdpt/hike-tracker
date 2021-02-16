@@ -34,6 +34,13 @@ const App = () => {
   const msgAlert = ({ heading, message, variant }) => {
     setMsgAlerts([...msgAlerts, { heading, message, variant }])
   }
+  const handleUserImageChange  = (url) => {
+    setUser((prevPost) => {
+      const updatedPost = { ['profileImage']: url }
+      const editedPost = Object.assign({}, prevPost, updatedPost)
+      return editedPost
+    })
+  }
 
   const backgroundArray = [Presidentials, Fallroad, Waterfall, HuntingtonRavine, LincolnWoods, Rainbow, Trail, WashingtonCrawford, River, WinterWhites, BlueWinter, River, SunrisePemi]
   const randomBG = Math.floor(Math.random() * backgroundArray.length)
@@ -70,7 +77,7 @@ const App = () => {
           <ChangePassword msgAlert={msgAlert} user={user} />
           )} />
         <AuthenticatedRoute user={user} path='/profile' render={() => (
-          <UserProfile user={user} />
+          <UserProfile user={user} handleUserImageChange={handleUserImageChange} />
           )} />
         {msgAlerts.map((msgAlert, index) => (
           <AutoDismissAlert

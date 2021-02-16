@@ -25,7 +25,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 
     return (
-      <div>
+      <div className='pie-chart-container'>
         <PieChart width={200} height={200}>
           <Pie
             data={data}

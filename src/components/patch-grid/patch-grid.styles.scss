@@ -14,6 +14,7 @@
   border: white 2px solid;
   padding: 10px;
   margin: 20px 0px;
+  min-width: 285px;
 }
 
 .patch-image-container {
@@ -22,4 +23,11 @@
 .patch-image {
   width: 90%;
   object-fit: cover;
+}
+
+.pie-chart-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 285px;
 }
