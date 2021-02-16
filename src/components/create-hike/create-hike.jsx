@@ -1,12 +1,36 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import apiUrl from '../../apiConfig.js'
+import S3 from 'react-aws-s3';
 import './create-hike.styles.scss'
 
 const CreateHike = ({ user, msgAlert }) => {
   const [newHike, setNewHike] = useState({})
 
-  const onFileChange = event => console.log(event.target.files[0])
+  const secret = process.env.REACT_APP_SECRET_KEY
+  const access = process.env.REACT_APP_ACCESS_KEY
+
+  const config = {
+    bucketName: 'hike-tracker',
+    region: 'us-east-2',
+    accessKeyId: access,
+    secretAccessKey: secret,
+}
+
+const ReactS3Client = new S3(config);
+/*  Notice that if you don't provide a dirName, the file will be automatically uploaded to the root of your bucket */
+
+  const onFileChange = event => {
+    const file = (event.target.files[0])
+    ReactS3Client
+    .uploadFile(file)
+    .then(data => setNewHike((prevPost) => {
+      const updatedPost = { [event.target.name]: data.location }
+      const editedPost = Object.assign({}, prevPost, updatedPost)
+      return editedPost
+    }))
+    .catch(err => console.error(err))
+  }
 
   const handleChange = (event) => {
     event.persist()
