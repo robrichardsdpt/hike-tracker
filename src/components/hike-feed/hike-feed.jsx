@@ -3,12 +3,19 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig.js'
 import HikeFeedCard from './hike-feed-card'
 import EditModal from '../edit-modal/edit-modal'
+import SearchBar from '../search-bar/search-bar'
 import './hike-feed.styles.scss'
 
 const Feed = ({ user }) => {
   const [hikes, setHikes] = useState([])
   const [hikeId, setHikeId] = useState()
   const [show, setShow] = useState(false)
+  const [searchContents, setSearchContents] = useState('')
+
+
+  const handleSearchContents = (event) => {
+    setSearchContents(event.target.value)
+  }
 
   const handleUpdateClick = (event) => {
     setHikeId(event.target.id)
@@ -28,7 +35,16 @@ const Feed = ({ user }) => {
     .then((res) => setHikes(res.data.hikes))
   }, [show])
 
-  const hikesJsx = hikes.map(hike => {
+  let searchContentsLowerCase = searchContents.toLowerCase()
+  const filterData = hikes.filter(
+    (item) =>
+      item.mountainsClimbed?.toLowerCase().includes(searchContentsLowerCase) ||
+      item.trails.toLowerCase().includes(searchContentsLowerCase) ||
+      item.hikedWith?.toLowerCase().includes(searchContentsLowerCase) ||
+      item.trailNotes?.toLowerCase().includes(searchContentsLowerCase)
+  )
+
+  const hikesJsx = filterData.map(hike => {
     let profile
     return(
       <div key={hike._id}>
@@ -38,6 +54,9 @@ const Feed = ({ user }) => {
   })
   return(
     <div>
+      <div className='search-container'>
+        <SearchBar handleSearchContents={handleSearchContents}/>
+      </div>
       <div className='hike-grid'>{hikesJsx}</div>
       {hikeId && <EditModal show={show} handleClose={handleClose} setHikeId={setHikeId} hikeId={hikeId} user={user}/> }
     </div>

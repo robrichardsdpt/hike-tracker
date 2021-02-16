@@ -5,11 +5,13 @@ import UserInfo from './user-info'
 import axios from 'axios'
 import './user-profile.styles.scss'
 import EditModal from '../edit-modal/edit-modal.jsx'
+import SearchBar from '../search-bar/search-bar.jsx'
 
 const UserProfile = ({ user }) => {
   const [hikes, setHikes] = useState([])
   const [hikeId, setHikeId] = useState()
   const [show, setShow] = useState(false)
+  const [searchContents, setSearchContents] = useState('')
 
   const handleUpdateClick = (event) => {
     setHikeId(event.target.id)
@@ -17,6 +19,10 @@ const UserProfile = ({ user }) => {
     console.log(event.target.id)
   }
   const handleClose = () => setShow(false) 
+
+  const handleSearchContents = (event) => {
+    setSearchContents(event.target.value)
+  }
 
   useEffect(() => {
     axios({
@@ -29,7 +35,16 @@ const UserProfile = ({ user }) => {
     .then((res) => setHikes(res.data.hikes))
   }, [show])
 
-  const hikesJsx = hikes.map(hike => {
+  let searchContentsLowerCase = searchContents.toLowerCase()
+  const filterData = hikes.filter(
+    (item) =>
+      item.mountainsClimbed?.toLowerCase().includes(searchContentsLowerCase) ||
+      item.trails.toLowerCase().includes(searchContentsLowerCase) ||
+      item.hikedWith?.toLowerCase().includes(searchContentsLowerCase) ||
+      item.trailNotes?.toLowerCase().includes(searchContentsLowerCase)
+  )
+
+  const hikesJsx = filterData.map(hike => {
     return(
       <div key={hike._id}>
       <HikeFeedCard hike={hike} user={user} profile={true} handleUpdateClick={handleUpdateClick}/>
@@ -40,6 +55,9 @@ const UserProfile = ({ user }) => {
     <div className='profile-container'>
       <div className='profile-info'>
         <UserInfo user={user} hikes={hikes}/>
+      </div>
+      <div className='search-container'>
+      <SearchBar handleSearchContents={handleSearchContents}/>
       </div>
       <div className='hike-grid'>
         {hikesJsx}
