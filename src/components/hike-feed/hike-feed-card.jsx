@@ -16,7 +16,7 @@ const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
         hike.owner.email === user.email && <div className='click-to-edit' id={hike._id} onClick={handleUpdateClick}>...</div>
       }</h4></div>
     </div>
-    {hike.picture && <div className='hike-picture-container'></div>}
+    {hike.picture && <div className='hike-picture-container'><img className='hike-picture' src={hike.picture}/></div>}
     <div className='hike-information'>
     {
       profile === false && 
