@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import { Modal } from 'react-bootstrap'
 import apiUrl from '../../apiConfig.js'
+import S3 from 'react-aws-s3';
 import axios from 'axios'
 import './edit-modal.styles.scss'
 
@@ -8,6 +9,31 @@ const EditModal = ({user, hikeId , show, handleClose}) => {
   const [hike, setHike] = useState({})
   const [deleteShow, setDeleteShow] = useState(false)
   const [updateHike, setUpdateHike] = useState(false)
+
+  const secret = process.env.REACT_APP_SECRET_KEY
+  const access = process.env.REACT_APP_ACCESS_KEY
+
+  const config = {
+    bucketName: 'hike-tracker',
+    region: 'us-east-2',
+    accessKeyId: access,
+    secretAccessKey: secret,
+}
+
+const ReactS3Client = new S3(config);
+/*  Notice that if you don't provide a dirName, the file will be automatically uploaded to the root of your bucket */
+
+  const onFileChange = event => {
+    const file = (event.target.files[0])
+    ReactS3Client
+    .uploadFile(file)
+    .then(data => setHike((prevPost) => {
+      const updatedPost = { [event.target.name]: data.location }
+      const editedPost = Object.assign({}, prevPost, updatedPost)
+      return editedPost
+    }))
+    .catch(err => console.error(err))
+  }
 
   const handleChange = (event) => {
     event.persist()
@@ -82,6 +108,9 @@ const EditModal = ({user, hikeId , show, handleClose}) => {
         <input className='edit-hike-input' name='mountainsClimbed' id='mountainsClimbed' type='text' onChange={handleChange} value={hike.mountainsClimbed}/>
         <label className='edit-hike-label'>Who did you hike with?:</label>
         <input className='edit-hike-input' name='hikedWith' type='text' onChange={handleChange} value={hike.hikedWith}/>
+        {hike.picture && <div className='hike-picture-container'><img className='hike-picture' src={hike.picture}/></div>}
+        <label className='create-hike-label'>Add/Replace picture:</label><br/>
+        <input className='create-hike-input' name='picture' type="file" onChange={onFileChange} />
         <label className='edit-hike-label'>Trail Notes:</label>
         <textarea className='edit-hike-input' name='trailNotes' onChange={handleChange} value={hike.trailNotes}/>
         <input type='submit' className='edit-hike-button' value='Save Changes'/>
