@@ -13,22 +13,37 @@ const mountainsClimbedToTable = (hikes) => {
   mountainsClimbedArray.forEach(mountain => mountainsTable[mountain] ? mountainsTable[mountain]++ : mountainsTable[mountain] = 1)
   console.log(mountainsTable)
   for(let key in mountainsTable) {
-    if (!key) {
-      delete mountainsTable[key]
-    }
+    if (!key) delete mountainsTable[key]
     if (key.includes(' and ')) {
       const splitKey = key.split(' and ')
       for(let i = 0; i < splitKey.length; i++) {
         mountainsTable[splitKey[i]] = mountainsTable[key]
       }
+      delete mountainsTable[undefined]
       delete mountainsTable[key] 
     } else if (key.includes(', ')) {
       const splitKey = key.split(', ')
       for(let i = 0; i < splitKey.length; i++) {
         mountainsTable[splitKey[i]] = mountainsTable[key]
       }
+      delete mountainsTable[undefined]
+      delete mountainsTable[key] 
+    } else if (key.includes(' mountain')) {
+      const splitKey = key.split(' mountain')
+      for(let i = 0; i < splitKey.length; i++) {
+        mountainsTable[splitKey[i]] = mountainsTable[key]
+      }
+      delete mountainsTable[undefined]
+      delete mountainsTable[key]
+    } else if (key.includes('mount ')) {
+      const splitKey = key.split('mount ')
+      for(let i = 0; i < splitKey.length; i++) {
+        mountainsTable[splitKey[i]] = mountainsTable[key]
+      }
+      delete mountainsTable[undefined]
       delete mountainsTable[key] 
     }
+    delete mountainsTable['']
   }
 }
 

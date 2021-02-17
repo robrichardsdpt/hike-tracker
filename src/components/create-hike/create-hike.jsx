@@ -35,7 +35,8 @@ const ReactS3Client = new S3(config);
   const handleChange = (event) => {
     event.persist()
     setNewHike((prevPost) => {
-      const updatedPost = { [event.target.name]: event.target.value }
+      let inputData = event.target.value
+      const updatedPost = { [event.target.name]: inputData }
       const editedPost = Object.assign({}, prevPost, updatedPost)
       return editedPost
     })
