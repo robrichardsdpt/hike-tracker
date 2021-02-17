@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import apiUrl from '../../apiConfig.js'
 import S3 from 'react-aws-s3'
-import { Redirect, withRouter } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import './create-hike.styles.scss'
 
 const CreateHike = ({ user, msgAlert, updateCreatedHike }) => {
