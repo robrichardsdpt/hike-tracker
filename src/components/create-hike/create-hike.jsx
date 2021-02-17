@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import apiUrl from '../../apiConfig.js'
-import S3 from 'react-aws-s3';
+import S3 from 'react-aws-s3'
+import { Redirect, withRouter } from 'react-router-dom'
 import './create-hike.styles.scss'
 
 const CreateHike = ({ user, msgAlert, updateCreatedHike }) => {
   const [newHike, setNewHike] = useState({})
+  const [createdHike, setCreatedHike] = useState(false)
 
   const secret = process.env.REACT_APP_SECRET_KEY
   const access = process.env.REACT_APP_ACCESS_KEY
@@ -60,6 +62,7 @@ const ReactS3Client = new S3(config);
     }))
     .then(() => setNewHike({}))
     .then(() => updateCreatedHike())
+    .then(() => setCreatedHike(true))
     .catch(() => msgAlert({
       heading: 'Unable to create hike!',
       variant: 'failure'
@@ -69,6 +72,7 @@ const ReactS3Client = new S3(config);
   console.log(newHike)
   return (
     <div className='create-hike-container'>
+    {createdHike && <Redirect to={'/home'} />}
     <form id='create-hike' onSubmit={onSubmitHike}>
       <h2 className='create-hike-title'>Create a Hike</h2>
       <label className='create-hike-label'>Date:</label>
