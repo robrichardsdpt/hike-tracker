@@ -48,3 +48,25 @@
   height: 200px;
   width: auto;
 }
+
+.name-plate {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.name-plate-label {
+  margin-top: 10px;
+}
+
+.feed-image-container {
+  height: 34px;
+  width: 34px;
+  margin-right: 12px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.feed-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

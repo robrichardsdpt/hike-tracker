@@ -1,5 +1,6 @@
 import React from 'react'
 import Moment from 'react-moment'
+import NoPhoto from '../user-profile/no-photo-avail.jpg'
 import './hike-feed.styles.scss'
 
 const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
@@ -21,11 +22,12 @@ const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
     {
       profile === false && 
         <div className="hike-information-row">
-          <div className="hike-information-label">
+          <div className="hike-information-label name-plate-label">
              HIKER:
           </div>
-        <div className="hike-information-data">
-          {hike.owner.email}
+        <div className="hike-information-data name-plate">
+          <div>{user.profileImage ? <div className='feed-image-container'><img  className='feed-image' src={user.profileImage} /></div> : <div className='feed-image-container'><img src={NoPhoto} className='profile-image'/></div>}</div>
+          <div>{hike.owner.email}</div>
         </div>
       </div>
     }
