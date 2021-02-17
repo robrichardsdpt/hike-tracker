@@ -25,7 +25,7 @@ const UserInfo = ({ user, hikes, handleUserImageChange }) => {
       <h4>Hikes logged: {hikes.length}</h4>
       <h4>Total distance: {totalDistance} miles </h4>
       <h4>Total distance climbed: {totalElevation} feet</h4>
-      {mountainsTable && <PatchGrid mountainsTable={mountainsTable} totalDistance={totalDistance} totalElevation={totalElevation}/>}
+      {mountainsTable && <PatchGrid mountainsTable={mountainsTable} totalDistance={totalDistance} totalElevation={totalElevation} />}
       <UserModal show={show} handleClose={handleClose} user={user} handleUserImageChange={handleUserImageChange}/>
     </div>
   )

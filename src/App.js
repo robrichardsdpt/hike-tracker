@@ -28,7 +28,9 @@ import BlueWinter from './bluewinter.jpg'
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+  const [createdHike, setCreatedHike] = useState(0)
 
+  const updateCreatedHike = () => setCreatedHike(createdHike + 1)
   const clearUser = () => setUser(null)
 
   const msgAlert = ({ heading, message, variant }) => {
@@ -68,7 +70,7 @@ const App = () => {
           <Home msgAlert={msgAlert} clearUser={clearUser} user={user} />
         )} />
         <AuthenticatedRoute user={user} path='/create' render={() => (
-          <CreateHike msgAlert={msgAlert} user={user} />
+          <CreateHike msgAlert={msgAlert} user={user} updateCreatedHike={updateCreatedHike}/>
         )} />
         <AuthenticatedRoute user={user} path='/sign-out' render={() => (
           <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
@@ -77,7 +79,7 @@ const App = () => {
           <ChangePassword msgAlert={msgAlert} user={user} />
           )} />
         <AuthenticatedRoute user={user} path='/profile' render={() => (
-          <UserProfile user={user} handleUserImageChange={handleUserImageChange} />
+          <UserProfile user={user} handleUserImageChange={handleUserImageChange} createdHike={createdHike}/>
           )} />
         {msgAlerts.map((msgAlert, index) => (
           <AutoDismissAlert

@@ -7,7 +7,7 @@ import './user-profile.styles.scss'
 import EditModal from '../edit-modal/edit-modal.jsx'
 import SearchBar from '../search-bar/search-bar.jsx'
 
-const UserProfile = ({ user, handleUserImageChange }) => {
+const UserProfile = ({ user, handleUserImageChange, createdHike }) => {
   const [hikes, setHikes] = useState([])
   const [hikeId, setHikeId] = useState()
   const [show, setShow] = useState(false)
@@ -33,7 +33,7 @@ const UserProfile = ({ user, handleUserImageChange }) => {
       }
     })
     .then((res) => setHikes(res.data.hikes))
-  }, [show])
+  }, [show, createdHike])
 
   let searchContentsLowerCase = searchContents.toLowerCase()
   const filterData = hikes.filter(
@@ -48,7 +48,7 @@ const UserProfile = ({ user, handleUserImageChange }) => {
         bb = b.date.split('/').reverse().join()
     return bb < aa ? -1 : (bb > aa ? 1 : 0)
   })
-  
+
   const hikesJsx = sortedFilterData.map(hike => {
     return(
       <div key={hike._id}>
@@ -60,7 +60,7 @@ const UserProfile = ({ user, handleUserImageChange }) => {
   return(
     <div className='profile-container'>
       <div className='profile-info'>
-        <UserInfo user={user} hikes={hikes} handleUserImageChange={handleUserImageChange}/>
+        <UserInfo user={user} hikes={hikes} handleUserImageChange={handleUserImageChange} createdHike={createdHike}/>
       </div>
       <div className='search-container'>
         <SearchBar handleSearchContents={handleSearchContents}/>

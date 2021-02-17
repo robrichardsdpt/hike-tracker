@@ -7,6 +7,7 @@ import './../patch-grid.styles.scss'
 
 const Nh48Patch = ({ mountainsTable }) => {
   const hike48 = listOfNH4k.filter(hike => mountainsTable[hike] >= 1)
+  console.log(hike48)
   const hike48Jsx = hike48.length ? `You have hiked ${hike48.length}/48 4000 foot mountains in NH's White Mountains!` : 'Get started on your 48!'
   let totalPeaks
   return(

@@ -6,6 +6,7 @@ const hikeTotalElevation = (hikes) => hikes.reduce((accumulator, hike) => {
 }, 0)
 
 const mountainsTable = {}
+
 const mountainsClimbedToTable = (hikes) => {
   const mountainsClimbedArray = hikes.map(hike => {
     return hike.mountainsClimbed?.toLowerCase()
@@ -51,6 +52,10 @@ const deleteMountainsTable = () => {
   for(let key in mountainsTable) {
     delete mountainsTable.key
   }
+}
+
+const deleteMountainsArray = () => {
+
 }
 
 console.log(mountainsTable)

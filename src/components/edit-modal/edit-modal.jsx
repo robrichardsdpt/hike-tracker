@@ -54,6 +54,7 @@ const ReactS3Client = new S3(config);
       },
       data: { hike }
     })
+    .then(() => setHike({}))
     .then(() => handleClose())
     .then(() => setUpdateHike(true))
     .catch((err) => console.error(err))
@@ -68,6 +69,7 @@ const ReactS3Client = new S3(config);
         Authorization: `Token token=${user.token}`
       }
     })
+    .then(() => setHike({}))
     .then(() => setDeleteShow(true))
     .then(() => handleClose())
     
@@ -83,7 +85,7 @@ const ReactS3Client = new S3(config);
       },
     })
     .then((res) => setHike(res.data.hike))
-  }, [updateHike])
+  }, [updateHike, hikeId])
 
   console.log(hike)
   return(
