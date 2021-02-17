@@ -41,7 +41,8 @@ const Feed = ({ user }) => {
       item.mountainsClimbed?.toLowerCase().includes(searchContentsLowerCase) ||
       item.trails.toLowerCase().includes(searchContentsLowerCase) ||
       item.hikedWith?.toLowerCase().includes(searchContentsLowerCase) ||
-      item.trailNotes?.toLowerCase().includes(searchContentsLowerCase)
+      item.trailNotes?.toLowerCase().includes(searchContentsLowerCase) ||
+      item.owner.email.toLowerCase().includes(searchContentsLowerCase)
   )
   const sortedFilterData = filterData.sort((a, b) => {
     let aa = a.date.split('/').reverse().join(),
@@ -49,7 +50,6 @@ const Feed = ({ user }) => {
     return bb < aa ? -1 : (bb > aa ? 1 : 0)
   })
 
-  console.log(sortedFilterData)
   const hikesJsx = sortedFilterData.map(hike => {
     let profile
     return(
