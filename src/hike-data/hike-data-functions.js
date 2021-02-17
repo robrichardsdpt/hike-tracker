@@ -47,11 +47,18 @@ const mountainsClimbedToTable = (hikes) => {
   }
 }
 
+const deleteMountainsTable = () => {
+  for(let key in mountainsTable) {
+    delete mountainsTable.key
+  }
+}
+
 console.log(mountainsTable)
 
 module.exports = {
   hikeTotalDistance,
   hikeTotalElevation,
   mountainsClimbedToTable,
-  mountainsTable
+  mountainsTable,
+  deleteMountainsTable
 }

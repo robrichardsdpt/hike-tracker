@@ -43,8 +43,13 @@ const UserProfile = ({ user, handleUserImageChange }) => {
       item.hikedWith?.toLowerCase().includes(searchContentsLowerCase) ||
       item.trailNotes?.toLowerCase().includes(searchContentsLowerCase)
   )
-
-  const hikesJsx = filterData.map(hike => {
+  const sortedFilterData = filterData.sort((a, b) => {
+    let aa = a.date.split('/').reverse().join(),
+        bb = b.date.split('/').reverse().join()
+    return bb < aa ? -1 : (bb > aa ? 1 : 0)
+  })
+  
+  const hikesJsx = sortedFilterData.map(hike => {
     return(
       <div key={hike._id}>
       <HikeFeedCard hike={hike} user={user} profile={true} handleUpdateClick={handleUpdateClick}/>

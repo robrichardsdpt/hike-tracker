@@ -26,7 +26,7 @@ const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
              HIKER:
           </div>
         <div className="hike-information-data name-plate">
-          <div>{user.profileImage ? <div className='feed-image-container'><img  className='feed-image' src={user.profileImage} /></div> : <div className='feed-image-container'><img src={NoPhoto} className='profile-image'/></div>}</div>
+          <div>{hike.owner.profileImage ? <div className='feed-image-container'><img  className='feed-image' src={hike.owner.profileImage} /></div> : <div className='feed-image-container'><img src={NoPhoto} className='feed-image'/></div>}</div>
           <div>{hike.owner.email}</div>
         </div>
       </div>
