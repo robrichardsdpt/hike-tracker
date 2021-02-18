@@ -1,18 +1,49 @@
-.hike-grid {
-  width: 90%;
-  display: grid;
-  margin: 0 auto;
-  margin-top: 25px;
-  grid-template-columns: 30% 30% 30%;
-  justify-content: space-evenly;
+.hike-feed {
+  display: flex;
+  justify-content: center;
 }
+.hike-grid {
+  width: 75%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: center;
+}
+
+@media (max-width: 1280px) {
+  .hike-grid {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 880px) {
+  .hike-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
+
 .hike-card {
   border: 2px solid gold;
   border-radius: 15px;
   padding: 10px;
   background: rgba(0,0,0,0.6);
-  min-width: 320px;
-  margin-bottom: 20px;
+  width: 380px;
+  margin: 20px auto;
+}
+
+@media (max-width: 480px) {
+  .hike-card {
+    border: 2px solid gold;
+    border-radius: 15px;
+    padding: 10px;
+    background: rgba(0,0,0,0.6);
+    width: 350px;
+    margin: 20px auto;
+  }
 }
 .hike-information-row{
   display: flex;

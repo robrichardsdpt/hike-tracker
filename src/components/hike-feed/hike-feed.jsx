@@ -63,8 +63,10 @@ const Feed = ({ user }) => {
       <div className='search-container'>
         <SearchBar handleSearchContents={handleSearchContents}/>
       </div>
-      <div className='hike-grid'>{hikesJsx}</div>
-      {hikeId && <EditModal show={show} handleClose={handleClose} setHikeId={setHikeId} hikeId={hikeId} user={user}/> }
+      <div className='hike-feed'>        
+        <div className='hike-grid'>{hikesJsx}</div>
+        {hikeId && <EditModal show={show} handleClose={handleClose} setHikeId={setHikeId} hikeId={hikeId} user={user}/> }
+      </div>
     </div>
   )
 }
