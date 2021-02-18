@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PatchGrid from '../patch-grid/patch-grid'
-import { hikeTotalDistance, hikeTotalElevation, mountainsClimbedToTable, mountainsTable } from '../../hike-data/hike-data-functions'
+import { hikeTotalDistance, hikeTotalElevation } from '../../hike-data/hike-data-functions'
 import './user-profile.styles.scss'
 import NoPhoto from './no-photo-avail.jpg'
 import UserModal from './user-image-modal'
@@ -11,6 +11,49 @@ const UserInfo = ({ user, hikes, handleUserImageChange }) => {
   const handleImageClick = () => setShow(true)
   
   const handleClose = () => setShow(false)
+
+  const mountainsTable = {}
+
+  const mountainsClimbedToTable = (hikes) => {
+    const mountainsClimbedArray = hikes.map(hike => {
+      return hike.mountainsClimbed?.toLowerCase()
+    })
+    mountainsClimbedArray.forEach(mountain => mountainsTable[mountain] ? mountainsTable[mountain]++ : mountainsTable[mountain] = 1)
+    console.log(mountainsTable)
+    for(let key in mountainsTable) {
+      if (!key) delete mountainsTable[key]
+      if (key.includes(' and ')) {
+        const splitKey = key.split(' and ')
+        for(let i = 0; i < splitKey.length; i++) {
+          mountainsTable[splitKey[i]] = mountainsTable[key]
+        }
+        delete mountainsTable[undefined]
+        delete mountainsTable[key] 
+      } else if (key.includes(', ')) {
+        const splitKey = key.split(', ')
+        for(let i = 0; i < splitKey.length; i++) {
+          mountainsTable[splitKey[i]] = mountainsTable[key]
+        }
+        delete mountainsTable[undefined]
+        delete mountainsTable[key] 
+      } else if (key.includes(' mountain')) {
+        const splitKey = key.split(' mountain')
+        for(let i = 0; i < splitKey.length; i++) {
+          mountainsTable[splitKey[i]] = mountainsTable[key]
+        }
+        delete mountainsTable[undefined]
+        delete mountainsTable[key]
+      } else if (key.includes('mount ')) {
+        const splitKey = key.split('mount ')
+        for(let i = 0; i < splitKey.length; i++) {
+          mountainsTable[splitKey[i]] = mountainsTable[key]
+        }
+        delete mountainsTable[undefined]
+        delete mountainsTable[key] 
+      }
+      delete mountainsTable['']
+    }
+  }
 
   mountainsClimbedToTable(hikes)
   const totalDistance = hikeTotalDistance(hikes)

@@ -18,7 +18,6 @@ class SignOut extends Component {
   }
 
   render () {
-    deleteMountainsTable()
     return ''
   }
 }
