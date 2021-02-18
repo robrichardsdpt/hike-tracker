@@ -19,7 +19,6 @@ const UserInfo = ({ user, hikes, handleUserImageChange }) => {
       return hike.mountainsClimbed?.toLowerCase()
     })
     mountainsClimbedArray.forEach(mountain => mountainsTable[mountain] ? mountainsTable[mountain]++ : mountainsTable[mountain] = 1)
-    console.log(mountainsTable)
     for(let key in mountainsTable) {
       if (!key) delete mountainsTable[key]
       if (key.includes(' and ')) {
