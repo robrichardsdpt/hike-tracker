@@ -15,6 +15,18 @@
   min-width: 320px;
   text-align: center;
 }
+@media (max-width: 800px) {
+  .profile-info {
+    width: 100%
+  }
+}
+
+@media (max-width: 450px) {
+  .email-font{
+    font-size: 1.5em;
+  }
+}
+
 .search-container {
   display: flex;
   justify-content: center;

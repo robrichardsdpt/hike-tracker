@@ -63,7 +63,7 @@ const UserInfo = ({ user, hikes, handleUserImageChange }) => {
       <div className='image-click' onClick={handleImageClick}>
       {user.profileImage ? <div className='image-container'><img src={user.profileImage} className='profile-image'/></div> : <div className='image-container'><img src={NoPhoto} className='profile-image'/></div>}
       </div>
-      <h3>{user.email}</h3>
+      <h3 className='email-font'>{user.email}</h3>
       <h4>Hikes logged: {hikes.length}</h4>
       <h4>Total distance: {totalDistance} miles </h4>
       <h4>Total distance climbed: {totalElevation} feet</h4>

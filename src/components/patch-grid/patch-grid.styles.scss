@@ -6,6 +6,18 @@
   overflow: scroll;
 }
 
+@media (max-width: 1350px) {
+  .patch-grid {
+    grid-template-columns: 90%;
+  }
+}
+
+@media (max-width: 725px) {
+  .patch-grid {
+    grid-template-columns: 100%;
+  }
+}
+
 .patch-card {
   display: flex;
   flex-direction: column;
