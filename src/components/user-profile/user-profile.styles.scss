@@ -84,12 +84,12 @@
   }
 }
 .user-picture-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-.user-picture {
   height: 300px;
   width: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
   overflow: hidden;
 }
+
