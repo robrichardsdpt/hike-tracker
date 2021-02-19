@@ -10,15 +10,16 @@
   justify-content: center;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1550px) {
   .hike-grid {
     display: grid;
     grid-template-columns: 45% 45%;
+    max-width: 1100px;
     justify-content: center;
   }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1050px) {
   .hike-grid {
     display: grid;
     grid-template-columns: 100%;
