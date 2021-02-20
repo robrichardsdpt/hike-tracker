@@ -87,7 +87,6 @@ const ReactS3Client = new S3(config);
     .then((res) => setHike(res.data.hike))
   }, [updateHike, hikeId])
 
-  console.log(hike)
   return(
     <div >
     <Modal show={show} onHide={handleClose} className='edit-hike-container'>
