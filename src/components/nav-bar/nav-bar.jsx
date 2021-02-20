@@ -23,7 +23,7 @@ const unauthenticatedOptions = (
 
 const NavBar = ({ user }) => {
   return (
-    <Navbar className='navbar' expand="md">
+    <Navbar className='navbar' expand="md" variant='dark'>
     <Link to="/home" className='navbar-link'>a hike from boston.</Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
