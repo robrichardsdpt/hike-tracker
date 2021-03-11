@@ -31,6 +31,7 @@
 
 .patch-image-container {
   width: 90%;
+  margin: 0 auto;
 }
 .patch-image {
   width: 90%;
@@ -38,8 +39,10 @@
 }
 
 .pie-chart-container {
-  display: flex;
+  display: grid;
   justify-content: center;
-  flex-direction: column;
   min-width: 285px;
+}
+.recharts-surface {
+  margin: 0 auto;
 }

@@ -41,7 +41,6 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
             ))}
           </Pie>
         </PieChart>
-          {Math.floor(completed/total *100)} % toward goal
       </div>
     );
   }

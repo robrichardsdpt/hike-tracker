@@ -9,7 +9,8 @@ const ElevationCenturyPatch = ({ totalElevation }) => {
     <h2>Elevation Century Patch</h2>
       {totalElevation >= 100000 && <div className='patch-image-container'><img src={CenPatch} className='patch-image' alt='patch'/></div>}
       {totalElevation !== 100000 && <ProgressChart completed={totalElevation} total={total=100000}/>}
-      {totalElevation !== 100000 && <div >You have {100000 - totalElevation} to go.</div>}
+      {Math.floor(totalElevation/100000 * 100)}% completed!
+      {totalElevation !== 100000 && <div >You have {100000 - totalElevation} feet to go.</div>}
       Keep hiking!
     </div>
   )

@@ -17,9 +17,11 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   const y = cy + radius * Math.sin(-midAngle * RADIAN)
 
   return (
+    <div>
     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
       {`${(percent * 100).toFixed(0)}%`}
     </text>
+    </div>
   );
 };
 
@@ -42,7 +44,6 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
             ))}
           </Pie>
         </PieChart>
-            {Math.floor(hikesLength/totalPeaks *100)} % toward goal
       </div>
     );
   }
