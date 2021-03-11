@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import AuthenticatedRoute from './components/authenticated-route/authenticated-route'
 import AutoDismissAlert from './components/alerts/auto-dismiss-alert.jsx'
 import NavBar from './components/nav-bar/nav-bar'
+import Landing from './components/landing/landing'
 import SignUp from './components/auth/sign-up'
 import SignIn from './components/auth/sign-in'
 import SignOut from './components/auth/sign-out'
@@ -60,6 +61,7 @@ const App = () => {
     <Fragment>
       <NavBar user={user} />
       <main style={background}>
+        <Route exact path='/' render= { () => <Landing/>}/>
         <Route path='/sign-up' render={() => (
           <SignUp msgAlert={msgAlert} setUser={setUser} />
         )} />
