@@ -32,7 +32,7 @@
   border: 2px solid gold;
   border-radius: 15px;
   padding: 10px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   width: 380px;
   margin: 20px auto;
 }
@@ -42,12 +42,12 @@
     border: 2px solid gold;
     border-radius: 15px;
     padding: 10px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     width: 350px;
     margin: 20px auto;
   }
 }
-.hike-information-row{
+.hike-information-row {
   display: flex;
   justify-content: space-between;
 }
@@ -74,7 +74,7 @@
   cursor: pointer;
   transform: scale(1.1) rotateZ(90deg);
 }
-.hike-picture-container{
+.hike-picture-container {
   display: flex;
   justify-content: center;
 }
