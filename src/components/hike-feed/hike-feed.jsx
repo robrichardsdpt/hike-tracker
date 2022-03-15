@@ -1,41 +1,38 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import apiUrl from '../../apiConfig.js'
-import HikeFeedCard from './hike-feed-card'
-import EditModal from '../edit-modal/edit-modal'
-import SearchBar from '../search-bar/search-bar'
-import './hike-feed.styles.scss'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import apiUrl from "../../apiConfig.js";
+import HikeFeedCard from "./hike-feed-card";
+import EditModal from "../edit-modal/edit-modal";
+import SearchBar from "../search-bar/search-bar";
+import "./hike-feed.styles.scss";
 
 const Feed = ({ user }) => {
-  const [hikes, setHikes] = useState([])
-  const [hikeId, setHikeId] = useState()
-  const [show, setShow] = useState(false)
-  const [searchContents, setSearchContents] = useState('')
-
+  const [hikes, setHikes] = useState([]);
+  const [hikeId, setHikeId] = useState();
+  const [show, setShow] = useState(false);
+  const [searchContents, setSearchContents] = useState("");
 
   const handleSearchContents = (event) => {
-    setSearchContents(event.target.value)
-  }
+    setSearchContents(event.target.value);
+  };
 
   const handleUpdateClick = (event) => {
-    setHikeId(event.target.id)
-    setShow(true)
-    console.log(event.target.id)
-  }
-  const handleClose = () => setShow(false) 
+    setHikeId(event.target.id);
+    setShow(true);
+  };
+  const handleClose = () => setShow(false);
 
   useEffect(() => {
     axios({
       url: `${apiUrl}/hikes/`,
-      method: 'GET',
+      method: "GET",
       params: {
-        owner: 'all'
-      }
-    })
-    .then((res) => setHikes(res.data.hikes))
-  }, [show])
+        owner: "all",
+      },
+    }).then((res) => setHikes(res.data.hikes));
+  }, [show]);
 
-  let searchContentsLowerCase = searchContents.toLowerCase()
+  let searchContentsLowerCase = searchContents.toLowerCase();
   const filterData = hikes.filter(
     (item) =>
       item.mountainsClimbed?.toLowerCase().includes(searchContentsLowerCase) ||
@@ -43,32 +40,46 @@ const Feed = ({ user }) => {
       item.hikedWith?.toLowerCase().includes(searchContentsLowerCase) ||
       item.trailNotes?.toLowerCase().includes(searchContentsLowerCase) ||
       item.owner.email.toLowerCase().includes(searchContentsLowerCase)
-  )
+  );
   const sortedFilterData = filterData.sort((a, b) => {
-    let aa = a.date.split('/').reverse().join(),
-        bb = b.date.split('/').reverse().join()
-    return bb < aa ? -1 : (bb > aa ? 1 : 0)
-  })
+    let aa = a.date.split("/").reverse().join(),
+      bb = b.date.split("/").reverse().join();
+    return bb < aa ? -1 : bb > aa ? 1 : 0;
+  });
 
-  const hikesJsx = sortedFilterData.map(hike => {
-    let profile
-    return(
+  const hikesJsx = sortedFilterData.map((hike) => {
+    let profile;
+    return (
       <div key={hike._id}>
-      <HikeFeedCard hike={hike} user={user} profile={profile=false} setHikeId={setHikeId} handleUpdateClick={handleUpdateClick}/>
+        <HikeFeedCard
+          hike={hike}
+          user={user}
+          profile={(profile = false)}
+          setHikeId={setHikeId}
+          handleUpdateClick={handleUpdateClick}
+        />
       </div>
-    )
-  })
-  return(
+    );
+  });
+  return (
     <div>
-      <div className='search-container'>
-        <SearchBar handleSearchContents={handleSearchContents}/>
+      <div className="search-container">
+        <SearchBar handleSearchContents={handleSearchContents} />
       </div>
-      <div className='hike-feed'>        
-        <div className='hike-grid'>{hikesJsx}</div>
-        {hikeId && <EditModal show={show} handleClose={handleClose} setHikeId={setHikeId} hikeId={hikeId} user={user}/> }
+      <div className="hike-feed">
+        <div className="hike-grid">{hikesJsx}</div>
+        {hikeId && (
+          <EditModal
+            show={show}
+            handleClose={handleClose}
+            setHikeId={setHikeId}
+            hikeId={hikeId}
+            user={user}
+          />
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Feed
+export default Feed;
