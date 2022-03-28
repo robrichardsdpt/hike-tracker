@@ -8,21 +8,28 @@
   margin: 0 auto;
   margin-top: 25px;
   color: whitesmoke;
-  border: 2px solid gold;
+  border: 0.25px solid gold;
   border-radius: 15px;
   padding: 10px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   min-width: 320px;
   text-align: center;
 }
+
+.profile-information-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 @media (max-width: 800px) {
   .profile-info {
-    width: 100%
+    width: 100%;
   }
 }
 
 @media (max-width: 450px) {
-  .email-font{
+  .email-font {
     font-size: 1.5em;
   }
 }
@@ -37,29 +44,28 @@
   justify-content: center;
   height: 150px;
   width: 150px;
-  overflow:hidden;
+  overflow: hidden;
   border-radius: 15px;
   margin: 10px auto;
-  border: 2px solid gold;
+  border: 0.25px solid gold;
 }
 .image-click:hover {
   cursor: pointer;
   transform: scale(1.05);
-
 }
 
 .edit-user-title {
   text-align: center;
-  background: rgba(0,0,0,0.6);
-  color: #FFC312;
-  border: solid 2px #FFC312;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffc312;
+  border: 0.25px solid gold;
 }
 
 .edit-user-footer {
-    text-align: center;
-    background: rgba(0,0,0,0.6);
-    color: #FFC312;
-    border: solid 2px #FFC312;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffc312;
+  border: 0.25px solid gold;
 }
 
 .edit-user-input {
@@ -87,12 +93,12 @@
   margin: 25px 50px 25px 75px;
   padding: 10px 15px;
   border-radius: 10px;
-  background: #FFC312;
+  background: #ffc312;
   font-weight: bolder;
 
-  &:hover{
-      background: #FFC312;;
-      color: whitesmoke;
+  &:hover {
+    background: #ffc312;
+    color: whitesmoke;
   }
 }
 .user-picture-container {
@@ -104,4 +110,13 @@
   margin-bottom: 20px;
   overflow: hidden;
 }
-
+.show-more {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  &:hover {
+    cursor: pointer;
+  }
+}
