@@ -1,15 +1,15 @@
 .edit-hike-title {
   text-align: center;
-  background: rgba(0,0,0,0.6);
-  color: #FFC312;
-  border: solid 2px #FFC312;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffc312;
+  border: solid 2px #ffc312;
 }
 
 .edit-hike-footer {
-    text-align: center;
-    background: rgba(0,0,0,0.6);
-    color: #FFC312;
-    border: solid 2px #FFC312;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffc312;
+  border: solid 2px #ffc312;
 }
 
 .edit-hike-input {
@@ -28,6 +28,8 @@
 .edit-hike-container {
   min-width: 350px;
   width: 50%;
+  height: 450px;
+  overflow-y: scroll;
   margin: 50px auto;
   border-radius: 15px;
 }
@@ -37,12 +39,12 @@
   margin: 25px 50px 25px 75px;
   padding: 10px 15px;
   border-radius: 10px;
-  background: #FFC312;
+  background: #ffc312;
   font-weight: bolder;
 
-  &:hover{
-      background: #FFC312;;
-      color: whitesmoke;
+  &:hover {
+    background: #ffc312;
+    color: whitesmoke;
   }
 }
 .delete-button-container {
@@ -54,11 +56,11 @@
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
-  background: #FFC312;
+  background: #ffc312;
   font-weight: bolder;
 
-  &:hover{
-      background: #FFC312;;
-      color: whitesmoke;
+  &:hover {
+    background: #ffc312;
+    color: whitesmoke;
   }
 }
