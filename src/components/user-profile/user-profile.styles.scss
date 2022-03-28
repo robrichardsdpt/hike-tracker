@@ -8,7 +8,7 @@
   margin: 0 auto;
   margin-top: 25px;
   color: whitesmoke;
-  border: 2px solid gold;
+  border: 0.25px solid gold;
   border-radius: 15px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.6);
@@ -47,7 +47,7 @@
   overflow: hidden;
   border-radius: 15px;
   margin: 10px auto;
-  border: 2px solid gold;
+  border: 0.25px solid gold;
 }
 .image-click:hover {
   cursor: pointer;
@@ -58,14 +58,14 @@
   text-align: center;
   background: rgba(0, 0, 0, 0.6);
   color: #ffc312;
-  border: solid 2px #ffc312;
+  border: 0.25px solid gold;
 }
 
 .edit-user-footer {
   text-align: center;
   background: rgba(0, 0, 0, 0.6);
   color: #ffc312;
-  border: solid 2px #ffc312;
+  border: 0.25px solid gold;
 }
 
 .edit-user-input {

@@ -29,7 +29,7 @@
 }
 
 .hike-card {
-  border: 2px solid gold;
+  border: 0.25px solid gold;
   border-radius: 15px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.6);
@@ -39,7 +39,7 @@
 
 @media (max-width: 480px) {
   .hike-card {
-    border: 2px solid gold;
+    border: 0.25px solid gold;
     border-radius: 15px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.6);
