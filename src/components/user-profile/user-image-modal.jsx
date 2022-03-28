@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal } from "react-bootstrap";
 import apiUrl from "../../apiConfig.js";
 import S3 from "react-aws-s3";
@@ -7,8 +7,6 @@ import NoPhoto from "./no-photo-avail.jpg";
 import "./user-profile.styles.scss";
 
 const UserModal = ({ user, show, handleClose, handleUserImageChange }) => {
-  const [image, setImage] = useState();
-
   const secret = process.env.REACT_APP_SECRET_KEY;
   const access = process.env.REACT_APP_ACCESS_KEY;
 
@@ -50,11 +48,15 @@ const UserModal = ({ user, show, handleClose, handleUserImageChange }) => {
         <Modal.Body className="edit-user-body">
           {user.profileImage ? (
             <div className="user-picture-container">
-              <img className="user-picture" src={user.profileImage} />
+              <img
+                className="user-picture"
+                src={user.profileImage}
+                alt="profile"
+              />
             </div>
           ) : (
             <div className="user-picture-container">
-              <img className="user-picture" src={NoPhoto} />
+              <img className="user-picture" src={NoPhoto} alt="no-profile" />
             </div>
           )}
           <label className="edit-user-label">Add/Replace picture:</label>

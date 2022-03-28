@@ -4,8 +4,6 @@ import NoPhoto from "../user-profile/no-photo-avail.jpg";
 import "./hike-feed.styles.scss";
 
 const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
-  const update = () => {};
-
   return (
     <div className="hike-card">
       <div className="date-title">
@@ -31,7 +29,7 @@ const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
       </div>
       {hike.picture && (
         <div className="hike-picture-container">
-          <img className="hike-picture" src={hike.picture} />
+          <img className="hike-picture" src={hike.picture} alt={"hike"} />
         </div>
       )}
       <div className="hike-information">
@@ -44,11 +42,19 @@ const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
               <div>
                 {hike.owner.profileImage ? (
                   <div className="feed-image-container">
-                    <img className="feed-image" src={hike.owner.profileImage} />
+                    <img
+                      className="feed-image"
+                      src={hike.owner.profileImage}
+                      alt={"profile"}
+                    />
                   </div>
                 ) : (
                   <div className="feed-image-container">
-                    <img src={NoPhoto} className="feed-image" />
+                    <img
+                      src={NoPhoto}
+                      className="feed-image"
+                      alt={"no-profile"}
+                    />
                   </div>
                 )}
               </div>

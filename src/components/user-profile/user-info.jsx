@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PatchGrid from "../patch-grid/patch-grid";
 import {
   hikeTotalDistance,
