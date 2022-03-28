@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.porfile-information-row {
+.profile-information-row {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -111,6 +111,11 @@
   overflow: hidden;
 }
 .show-more {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
   &:hover {
     cursor: pointer;
   }
