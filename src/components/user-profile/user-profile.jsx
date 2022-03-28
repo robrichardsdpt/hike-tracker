@@ -31,7 +31,7 @@ const UserProfile = ({ user, handleUserImageChange, createdHike }) => {
         owner: user._id,
       },
     }).then((res) => setHikes(res.data.hikes));
-  }, [show, createdHike]);
+  }, [show, createdHike, user._id]);
 
   let searchContentsLowerCase = searchContents.toLowerCase();
   const filterData = hikes.filter(
