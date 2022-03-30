@@ -1,15 +1,14 @@
 .navbar {
   background: #000000;
-  color: #FFC312;
+  color: #ffc312;
 }
 .navbar-link {
-  color:  #FFC312;
+  color: #ffc312;
   padding: 10px;
 
   &:hover {
     text-decoration: none;
-    color:  #FFC312;
-    transform: scale(1.1);
-    
+    color: #fcecbd;
+    transform: scale(1);
   }
 }
