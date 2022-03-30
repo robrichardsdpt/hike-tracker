@@ -4,7 +4,7 @@ import apiUrl from "../../apiConfig.js";
 import HikeFeedCard from "./hike-feed-card";
 import EditModal from "../edit-modal/edit-modal";
 import SearchBar from "../search-bar/search-bar";
-import { filterData } from "./helper";
+import { filterData } from "../../hike-data/helper";
 import "./hike-feed.styles.scss";
 
 const Feed = ({ user }) => {

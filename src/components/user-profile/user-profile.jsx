@@ -3,9 +3,11 @@ import apiUrl from "./../../apiConfig.js";
 import HikeFeedCard from "../hike-feed/hike-feed-card";
 import UserInfo from "./user-info";
 import axios from "axios";
-import "./user-profile.styles.scss";
+
 import EditModal from "../edit-modal/edit-modal.jsx";
 import SearchBar from "../search-bar/search-bar.jsx";
+import { filterData } from "../../hike-data/helper.js";
+import "./user-profile.styles.scss";
 
 const UserProfile = ({ user, handleUserImageChange, createdHike }) => {
   const [hikes, setHikes] = useState([]);
@@ -33,19 +35,7 @@ const UserProfile = ({ user, handleUserImageChange, createdHike }) => {
     }).then((res) => setHikes(res.data.hikes));
   }, [show, createdHike, user._id]);
 
-  let searchContentsLowerCase = searchContents.toLowerCase();
-  const filterData = hikes.filter(
-    (item) =>
-      item.mountainsClimbed?.toLowerCase().includes(searchContentsLowerCase) ||
-      item.trails.toLowerCase().includes(searchContentsLowerCase) ||
-      item.hikedWith?.toLowerCase().includes(searchContentsLowerCase) ||
-      item.trailNotes?.toLowerCase().includes(searchContentsLowerCase)
-  );
-  const sortedFilterData = filterData.sort((a, b) => {
-    let aa = a.date.split("/").reverse().join(),
-      bb = b.date.split("/").reverse().join();
-    return bb < aa ? -1 : bb > aa ? 1 : 0;
-  });
+  const sortedFilterData = filterData(searchContents, hikes);
 
   const hikesJsx = sortedFilterData.map((hike) => {
     return (
