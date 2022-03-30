@@ -4,6 +4,7 @@ import apiUrl from "../../apiConfig.js";
 import HikeFeedCard from "./hike-feed-card";
 import EditModal from "../edit-modal/edit-modal";
 import SearchBar from "../search-bar/search-bar";
+import { filterData } from "./helper";
 import "./hike-feed.styles.scss";
 
 const Feed = ({ user }) => {
@@ -32,29 +33,15 @@ const Feed = ({ user }) => {
     }).then((res) => setHikes(res.data.hikes));
   }, [show]);
 
-  let searchContentsLowerCase = searchContents.toLowerCase();
-  const filterData = hikes.filter(
-    (item) =>
-      item.mountainsClimbed?.toLowerCase().includes(searchContentsLowerCase) ||
-      item.trails.toLowerCase().includes(searchContentsLowerCase) ||
-      item.hikedWith?.toLowerCase().includes(searchContentsLowerCase) ||
-      item.trailNotes?.toLowerCase().includes(searchContentsLowerCase) ||
-      item.owner.email.toLowerCase().includes(searchContentsLowerCase)
-  );
-  const sortedFilterData = filterData.sort((a, b) => {
-    let aa = a.date.split("/").reverse().join(),
-      bb = b.date.split("/").reverse().join();
-    return bb < aa ? -1 : bb > aa ? 1 : 0;
-  });
-
+  const sortedFilterData = filterData(searchContents, hikes);
   const hikesJsx = sortedFilterData.map((hike) => {
-    let profile;
+    let profile = false;
     return (
       <div key={hike._id}>
         <HikeFeedCard
           hike={hike}
           user={user}
-          profile={(profile = false)}
+          profile={profile}
           setHikeId={setHikeId}
           handleUpdateClick={handleUpdateClick}
         />
