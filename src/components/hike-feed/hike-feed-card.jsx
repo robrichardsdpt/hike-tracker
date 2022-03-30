@@ -1,6 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
-import NoPhoto from "../user-profile/no-photo-avail.jpg";
+
+import HikeFeedCardData from "./hike-feed-card-data";
 import "./hike-feed.styles.scss";
 
 const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
@@ -33,75 +34,7 @@ const HikeFeedCard = ({ hike, user, profile, handleUpdateClick }) => {
         </div>
       )}
       <div className="hike-information">
-        {profile === false && (
-          <div className="hike-information-row">
-            <div className="hike-information-label name-plate-label">
-              HIKER:
-            </div>
-            <div className="hike-information-data name-plate">
-              <div>
-                {hike.owner.profileImage ? (
-                  <div className="feed-image-container">
-                    <img
-                      className="feed-image"
-                      src={hike.owner.profileImage}
-                      alt={"profile"}
-                    />
-                  </div>
-                ) : (
-                  <div className="feed-image-container">
-                    <img
-                      src={NoPhoto}
-                      className="feed-image"
-                      alt={"no-profile"}
-                    />
-                  </div>
-                )}
-              </div>
-              <div>{hike.owner.email}</div>
-            </div>
-          </div>
-        )}
-        <div className="hike-information-row">
-          <div className="hike-information-label">TRAIL:</div>
-          <div className="hike-information-data">{hike.trails}</div>
-        </div>
-        {hike.mountainsClimbed && (
-          <div className="hike-information-row">
-            <div className="hike-information-label">SUMMITS:</div>
-            <div className="hike-information-data">{hike.mountainsClimbed}</div>
-          </div>
-        )}
-        {hike.distance && (
-          <div className="hike-information-row">
-            <div className="hike-information-label">DISTANCE:</div>
-            <div className="hike-information-data">{hike.distance}</div>
-          </div>
-        )}
-        {hike.elevation && (
-          <div className="hike-information-row">
-            <div className="hike-information-label">ELEVATION GAIN:</div>
-            <div className="hike-information-data">{hike.elevation}</div>
-          </div>
-        )}
-        {hike.timeTaken && (
-          <div className="hike-information-row">
-            <div className="hike-information-label">TIME TAKEN:</div>
-            <div className="hike-information-data">{hike.timeTaken}</div>
-          </div>
-        )}
-        {hike.hikedWith && (
-          <div className="hike-information-row">
-            <div className="hike-information-label">HIKED WITH:</div>
-            <div className="hike-information-data">{hike.hikedWith}</div>
-          </div>
-        )}
-        {hike.trailNotes && (
-          <div>
-            <div className="hike-information-label">TRAIL NOTES:</div>
-            <div className="hike-information-data">{hike.trailNotes}</div>
-          </div>
-        )}
+        <HikeFeedCardData hike={hike} profile={profile} />
       </div>
     </div>
   );

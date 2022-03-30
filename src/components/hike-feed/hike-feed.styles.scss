@@ -10,6 +10,18 @@
   justify-content: center;
 }
 
+.hike-information-data-container {
+  padding: 10px;
+  max-width: 358px;
+  overflow-wrap: break-word;
+}
+
+.hike-information-row {
+  display: flex;
+  inline-size: 340px;
+  overflow-wrap: break-word;
+}
+
 @media (max-width: 1550px) {
   .hike-grid {
     display: grid;
@@ -55,8 +67,11 @@
   color: lightgoldenrodyellow;
 }
 .hike-information-data {
-  align-self: flex-end;
   color: whitesmoke;
+  max-width: 200;
+  overflow-x: scroll;
+  overflow-wrap: break-word;
+  padding-left: 10px;
 }
 .date-title {
   border-bottom: 5px solid gray;
@@ -87,9 +102,11 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
+  padding-bottom: 10px;
 }
 .name-plate-label {
   margin-top: 10px;
+  padding-bottom: 10px;
 }
 
 .feed-image-container {
