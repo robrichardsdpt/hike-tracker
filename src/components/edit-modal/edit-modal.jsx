@@ -5,6 +5,7 @@ import Input from "../input/input.jsx";
 import S3 from "react-aws-s3";
 import axios from "axios";
 import "./edit-modal.styles.scss";
+import ThemedButton from "../themed-button/themed-button.jsx";
 
 const EditModal = ({ user, hikeId, show, handleClose }) => {
   const [hike, setHike] = useState({});
@@ -167,17 +168,18 @@ const EditModal = ({ user, hikeId, show, handleClose }) => {
                 <img className="hike-picture" src={hike.picture} alt={hike} />
               </div>
             )}
-            <label className="create-hike-label">Add/Replace picture:</label>
+            <label className="edit-hike-label">Add/Replace picture:</label>
             <br />
             <input
-              className="create-hike-input"
+              className="edit-hike-input"
               name="picture"
               type="file"
               onChange={onFileChange}
             />
+            <br />
             <label className="edit-hike-label">Trail Notes:</label>
             <textarea
-              className="edit-hike-input"
+              className="edit-hike-textarea "
               name="trailNotes"
               onChange={handleChange}
               value={hike.trailNotes}
@@ -187,28 +189,28 @@ const EditModal = ({ user, hikeId, show, handleClose }) => {
               className="edit-hike-button"
               value="Save Changes"
             />
+            <ThemedButton
+              className="delete-button"
+              handleClick={(e) => {
+                e.preventDefault();
+                setDeleteShow(!deleteShow);
+              }}
+              message="Delete"
+            />
           </form>
           <div className="delete-button-container">
-            <button
-              className="edit-hike-button-delete"
-              onClick={() => setDeleteShow(true)}
-            >
-              Delete
-            </button>
             {deleteShow && (
               <>
-                <button
-                  className="edit-hike-button-delete warning"
-                  onClick={deleteItem}
-                >
-                  Confirm Delete!
-                </button>
-                <button
-                  className="edit-hike-button-delete"
-                  onClick={() => setDeleteShow(false)}
-                >
-                  Cancel
-                </button>
+                <ThemedButton
+                  className="delete-button"
+                  handleClick={deleteItem}
+                  message="Confirm Delete!"
+                />
+                <ThemedButton
+                  className="confirm-button"
+                  handleClick={() => setDeleteShow(false)}
+                  message="Cancel"
+                />
               </>
             )}
           </div>

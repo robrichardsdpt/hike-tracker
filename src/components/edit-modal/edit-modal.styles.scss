@@ -12,7 +12,9 @@
   border: solid 2px #ffc312;
 }
 
-.edit-hike-input {
+.edit-hike-textarea {
+  padding: 12px;
+  border-radius: 8px;
   display: block;
   width: 75%;
   margin: 5px auto;
@@ -21,6 +23,7 @@
   background: whitesmoke;
 }
 .edit-hike-label {
+  margin-top: 18px;
   margin-left: 25px;
   font-weight: bolder;
 }
@@ -40,7 +43,8 @@
   padding: 10px 15px;
   border-radius: 10px;
   background: #ffc312;
-  font-weight: bolder;
+  font-weight: 500;
+  color: black;
 
   &:hover {
     background: #ffc312;
@@ -51,16 +55,4 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
-}
-.edit-hike-button-delete {
-  border: none;
-  padding: 10px 15px;
-  border-radius: 10px;
-  background: #ffc312;
-  font-weight: bolder;
-
-  &:hover {
-    background: #ffc312;
-    color: whitesmoke;
-  }
 }

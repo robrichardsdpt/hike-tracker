@@ -1,0 +1,47 @@
+.button {
+  font-weight: 500;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.delete-button {
+  background-color: #b22222;
+  color: whitesmoke;
+  font-weight: 500;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: red;
+  }
+}
+
+.primary-button {
+  margin: 25px 50px 25px 75px;
+  background: #ffc312;
+  color: black;
+
+  &:hover {
+    background: #ffc312;
+    color: whitesmoke;
+  }
+}
+
+.no-left-margin {
+  margin-left: 0px;
+}
+
+.disabled-button {
+  background-color: silver;
+}
+
+.confirm-button {
+  background-color: green;
+  color: whitesmoke;
+
+  &:hover {
+    background-color: rgb(1, 148, 1);
+  }
+}

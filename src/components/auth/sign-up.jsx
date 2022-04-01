@@ -6,6 +6,7 @@ import messages from "../alerts/messages.js";
 
 import Form from "react-bootstrap/Form";
 import "./sign-up.styles.scss";
+import ThemedButton from "../themed-button/themed-button";
 
 class SignUp extends Component {
   constructor() {
@@ -93,9 +94,11 @@ class SignUp extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <button className="sign-up-button" type="submit">
-              Submit
-            </button>
+            <ThemedButton
+              className="primary-button no-left-margin"
+              type="submit"
+              message="Submit"
+            />
           </Form>
         </div>
       </div>
