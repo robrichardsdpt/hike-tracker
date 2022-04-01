@@ -1,13 +1,39 @@
 .landing__container {
   margin: 150px auto;
   text-align: center;
-  width: 50%;
-  color: #FFC312;
+  width: 75%;
+  color: #ffc312;
   padding: 50px;
   border-radius: 15px;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .6));
+  background-image: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
   opacity: 0;
   animation: animateLanding 4s 1.5s ease forwards;
+
+  @media (max-width: 480px) {
+    margin: 50px auto;
+    padding: 40px;
+    width: 100%;
+  }
+}
+
+.landing__title {
+  padding: 24px;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  @media (max-width: 480px) {
+    font-size: 20px;
+    padding: 12px;
+  }
+
+  .landing__subtitle {
+    padding: 18px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    @media (max-width: 480px) {
+      font-size: 18px;
+      padding: 12px;
+    }
+  }
 }
 
 @keyframes animateLanding {
