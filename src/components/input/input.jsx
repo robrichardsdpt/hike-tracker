@@ -1,6 +1,7 @@
 import "./input.styles.scss";
 
 const Input = ({
+  required = false,
   className,
   id,
   name,
@@ -11,6 +12,7 @@ const Input = ({
 }) => {
   return (
     <input
+      required={required}
       className={`primary ${className}`}
       name={name}
       id={id}

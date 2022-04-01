@@ -3,9 +3,8 @@ import { withRouter } from "react-router-dom";
 import { signIn } from "./auth-functions";
 import ThemedButton from "../themed-button/themed-button";
 import messages from "../alerts/messages.js";
-
-import Form from "react-bootstrap/Form";
 import "./sign-in.styles.scss";
+import Input from "../input/input";
 
 const SignIn = ({ msgAlert, history, setUser }) => {
   const [email, setEmail] = useState("");
@@ -42,38 +41,36 @@ const SignIn = ({ msgAlert, history, setUser }) => {
   };
 
   return (
-    <div className="row sign-in">
-      <div className="col-sm-10 col-md-8 mx-auto mt-5 mb-5">
-        <h3>Sign In</h3>
-        <Form onSubmit={handleSignIn}>
-          <Form.Group controlId="email">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              required
-              type="email"
-              name="email"
-              value={email}
-              placeholder="Enter email"
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              required
-              name="password"
-              value={password}
-              type="password"
-              placeholder="Password"
-              onChange={handleChange}
-            />
-          </Form.Group>
+    <div className="sign-in__container">
+      <div className="sign-in__form">
+        <h2 className={"auth-title"}>sign in</h2>
+        <form onSubmit={handleSignIn}>
+          <label className="auth-label">email address</label>
+          <Input
+            required
+            className="width-100"
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Enter email"
+            handleChange={handleChange}
+          />
+          <label>password</label>
+          <Input
+            required
+            className="width-100"
+            name="password"
+            value={password}
+            type="password"
+            placeholder="Password"
+            handleChange={handleChange}
+          />
           <ThemedButton
             className="primary-button no-left-margin"
             message="Submit"
             handleClick={handleSignIn}
           />
-        </Form>
+        </form>
       </div>
     </div>
   );
