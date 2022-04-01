@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import apiUrl from "../../apiConfig.js";
+import Input from "../input/input.jsx";
 import S3 from "react-aws-s3";
 import axios from "axios";
 import "./edit-modal.styles.scss";
@@ -96,69 +97,69 @@ const EditModal = ({ user, hikeId, show, handleClose }) => {
         <Modal.Body className="edit-hike-body">
           <form id="edit-hike" onSubmit={handleSave}>
             <label className="edit-hike-label">Date:</label>
-            <input
+            <Input
               className="edit-hike-input"
               name="date"
               id="date"
               type="date"
-              onChange={handleChange}
+              handleChange={handleChange}
               value={hike.date}
             />
             <label className="edit-hike-label">Trails:</label>
-            <input
+            <Input
               className="edit-hike-input"
               name="trails"
               id="trails"
               type="text"
-              onChange={handleChange}
+              handleChange={handleChange}
               value={hike.trails}
             />
             <label className="edit-hike-label">Distance (miles):</label>
-            <input
+            <Input
               className="edit-hike-input"
               name="distance"
               id="distance"
               type="number"
               step="0.1"
               min="0"
-              onChange={handleChange}
+              handleChange={handleChange}
               value={hike.distance}
             />
             <label className="edit-hike-label">Elevation (in feet):</label>
-            <input
+            <Input
               className="edit-hike-input"
               name="elevation"
               id="elevation"
               type="number"
               step="0.1"
               min="0"
-              onChange={handleChange}
+              handleChange={handleChange}
               value={hike.elevation}
             />
             <label className="edit-hike-label">Time taken(HH:MM:SS):</label>
-            <input
+            <Input
               className="edit-hike-input"
               name="timeTaken"
               id="timeTaken"
               type="text"
-              onChange={handleChange}
+              handleChange={handleChange}
               value={hike.timeTaken}
             />
             <label className="edit-hike-label">Mountains Climbed:</label>
-            <input
+            <Input
               className="edit-hike-input"
               name="mountainsClimbed"
               id="mountainsClimbed"
               type="text"
-              onChange={handleChange}
+              handleChange={handleChange}
               value={hike.mountainsClimbed}
             />
             <label className="edit-hike-label">Who did you hike with?:</label>
-            <input
+            <Input
               className="edit-hike-input"
               name="hikedWith"
               type="text"
-              onChange={handleChange}
+              handleChange={handleChange}
               value={hike.hikedWith}
             />
             {hike.picture && (

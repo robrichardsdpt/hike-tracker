@@ -3,11 +3,6 @@
   color: white;
   margin-top: 25px;
 }
-.create-hike-input {
-  display: block;
-  width: 75%;
-  margin: 5px auto;
-}
 
 .create-hike-label {
   margin-left: 75px;
@@ -19,9 +14,9 @@
   width: 50%;
   margin: 50px auto;
   border-radius: 15px;
-  background: rgba(0,0,0,0.6);
-  color: #FFC312;
-  border: solid 2px #FFC312;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffc312;
+  border: solid 2px #ffc312;
 }
 
 .create-hike-button {
@@ -29,10 +24,17 @@
   margin: 15px 50px 25px 75px;
   padding: 10px 15px;
   border-radius: 10px;
-  background: #FFC312;
+  background: #ffc312;
 
-  &:hover{
-      background: #FFC312;;
-      color: whitesmoke;
+  &:hover {
+    background: #ffc312;
+    color: whitesmoke;
   }
+}
+.create-hike-textarea {
+  padding: 12px;
+  border-radius: 8px;
+  display: block;
+  width: 75%;
+  margin: 5px auto;
 }
