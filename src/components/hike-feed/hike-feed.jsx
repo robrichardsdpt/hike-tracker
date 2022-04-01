@@ -33,8 +33,7 @@ const Feed = ({ user }) => {
     }).then((res) => setHikes(res.data.hikes));
   }, [show]);
 
-  const sortedFilterData = filterData(searchContents, hikes);
-  const hikesJsx = sortedFilterData.map((hike) => {
+  const hikesJsx = filterData(searchContents, hikes).map((hike) => {
     let profile = false;
     return (
       <div key={hike._id}>

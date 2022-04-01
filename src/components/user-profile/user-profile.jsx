@@ -35,9 +35,7 @@ const UserProfile = ({ user, handleUserImageChange, createdHike }) => {
     }).then((res) => setHikes(res.data.hikes));
   }, [show, createdHike, user._id]);
 
-  const sortedFilterData = filterData(searchContents, hikes);
-
-  const hikesJsx = sortedFilterData.map((hike) => {
+  const hikesJsx = filterData(searchContents, hikes).map((hike) => {
     return (
       <div key={hike._id}>
         <HikeFeedCard
