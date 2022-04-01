@@ -2,9 +2,9 @@ import { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { signIn } from "./auth-functions";
 import ThemedButton from "../themed-button/themed-button";
-import messages from "../alerts/messages.js";
-import "./sign-in.styles.scss";
 import Input from "../input/input";
+import messages from "../alerts/messages.js";
+import "./auth.styles.scss";
 
 const SignIn = ({ msgAlert, history, setUser }) => {
   const [email, setEmail] = useState("");
@@ -41,8 +41,8 @@ const SignIn = ({ msgAlert, history, setUser }) => {
   };
 
   return (
-    <div className="sign-in__container">
-      <div className="sign-in__form">
+    <div className="auth__container">
+      <div className="auth__form">
         <h2 className={"auth-title"}>sign in</h2>
         <form onSubmit={handleSignIn}>
           <label className="auth-label">email address</label>
